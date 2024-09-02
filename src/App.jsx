@@ -19,6 +19,7 @@ import DetailsAnime from "./pages/details/DetailsAnime";
 import PlayerAnime from "./pages/player/PlayerAnime";
 import ExploreTv from "./pages/explore/ExploreTv";
 import PlayerTv from "./pages/player/PlayerTv";
+import CastDetailsBanner from "./pages/details/cast/CastDetail";
 
 function App() {
     const dispatch = useDispatch();
@@ -73,6 +74,7 @@ function App() {
                 <Route path="/explore/anime" element={<ExploreAnime />} />
                 <Route path="/explore/livetv" element={<ExploreTv />} />
                 <Route path="/explore/:mediaType" element={<Explore />} />
+                <Route path="/cast/:person_id" element={<CastDetailsBanner />} />
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
             {/* <Footer /> */}

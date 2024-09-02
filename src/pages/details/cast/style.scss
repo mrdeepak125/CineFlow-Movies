@@ -19,17 +19,18 @@
             padding: 0;
         }
         .listItem {
+            text-decoration: none;
             text-align: center;
             color: white;
             .profileImg {
                 width: 125px;
-                height: 125px;
-                border-radius: 50%;
+                height: 175px;
+                border-radius: 10%;
                 overflow: hidden;
                 margin-bottom: 15px;
                 @include md {
                     width: 175px;
-                    height: 175px;
+                    height: 265px;
                     margin-bottom: 25px;
                 }
                 img {

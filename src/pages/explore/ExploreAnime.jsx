@@ -11,26 +11,12 @@ const fetchAnimeData = async (pageNum) => {
   let config = {
     method: "get",
     maxBodyLength: Infinity,
-    url:
-      `https://proxymaster-1-q6640207.deta.app/fetch/https://api.anix.cc/movies/filter?limit=40&select=slug%2Cmovie%2Ctype%2Clatest_episode%2Cthumb%2Cname%2Csub_category%2Creleased_year%2Cgenres%2Cstate%2Cintro%2Ccreated_at%2Cother_names&sort_by=latest_episode.created_at&page=${pageNum}`,
+    url: `https://proxymaster-1-q6640207.deta.app/fetch/https://api.anix.cc/movies/filter?limit=40&select=slug%2Cmovie%2Ctype%2Clatest_episode%2Cthumb%2Cname%2Csub_category%2Creleased_year%2Cgenres%2Cstate%2Cintro%2Ccreated_at%2Cother_names&sort_by=latest_episode.created_at&page=${pageNum}`,
     headers: {
-      authority: "api.anix.cc",
       accept: "application/json",
       "accept-language": "en-US,en;q=0.5",
       "cache-control": "no-cache",
       "content-type": "application/json",
-      origin: "https://www.anix.cc",
-      pragma: "no-cache",
-      referer: "https://www.anix.cc/",
-      "sec-ch-ua": '"Chromium";v="122", "Not(A:Brand";v="24", "Brave";v="122"',
-      "sec-ch-ua-mobile": "?0",
-      "sec-ch-ua-platform": '"Windows"',
-      "sec-fetch-dest": "empty",
-      "sec-fetch-mode": "cors",
-      "sec-fetch-site": "same-site",
-      "sec-gpc": "1",
-      "user-agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
     },
   };
 
@@ -48,24 +34,10 @@ const fetchSearchData = async (query) => {
     maxBodyLength: Infinity,
     url: `https://proxymaster-1-q6640207.deta.app/fetch/https://api.anix.cc/movies/filter?limit=80&keywords=${query}`,
     headers: {
-
-      authority: "api.anix.cc",
       accept: "application/json",
       "accept-language": "en-US,en;q=0.5",
       "cache-control": "no-cache",
       "content-type": "application/json",
-      origin: "https://www.anix.cc",
-      pragma: "no-cache",
-      referer: "https://www.anix.cc/",
-      "sec-ch-ua": '"Chromium";v="122", "Not(A:Brand";v="24", "Brave";v="122"',
-      "sec-ch-ua-mobile": "?0",
-      "sec-ch-ua-platform": '"Windows"',
-      "sec-fetch-dest": "empty",
-      "sec-fetch-mode": "cors",
-      "sec-fetch-site": "same-site",
-      "sec-gpc": "1",
-      "user-agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
     },
   };
 
@@ -76,6 +48,7 @@ const fetchSearchData = async (query) => {
     console.log(error);
   }
 };
+
 
 const ExploreAnime = () => {
   const [data, setData] = useState(null);

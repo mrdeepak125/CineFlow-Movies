@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import "./style.scss";
 
@@ -19,6 +20,7 @@ const Cast = ({ data, loading }) => {
             </div>
         );
     };
+
     return (
         <div className="castSection">
             <ContentWrapper>
@@ -29,16 +31,19 @@ const Cast = ({ data, loading }) => {
                             let imgUrl = item.profile_path
                                 ? url.profile + item.profile_path
                                 : avatar;
+
                             return (
-                                <div key={item.id} className="listItem">
+                                <Link 
+                                    key={item.id} 
+                                    to={`/cast/${item.id}`}   // Use Link for navigation
+                                    className="listItem"
+                                >
                                     <div className="profileImg">
                                         <Img src={imgUrl} />
                                     </div>
                                     <div className="name">{item.name}</div>
-                                    <div className="character">
-                                        {item.character}
-                                    </div>
-                                </div>
+                                    <div className="character">{item.character}</div>
+                                </Link>
                             );
                         })}
                     </div>
