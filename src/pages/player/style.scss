@@ -1,0 +1,171 @@
+@import "../../mixins.scss";
+
+.player {
+    width: 100%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    // justify-content: center;
+    align-items: center;
+    background-color: var(--black);
+    padding-top: 100px;
+    margin-bottom: 40px;
+    @include md {
+        margin-bottom: 40px;
+        padding-top: 100px;
+        min-height: 700px;
+    }
+    .source-buttons{
+         display: flex;
+         gap: 8px;
+         margin-top: 12px;
+         padding: 0 5px;
+         background-color: var(--black);
+         color: white;
+         flex-wrap: wrap;
+         justify-content: center;
+         align-items: center;
+         @include md{
+          gap: 16px;
+         }
+        }
+}
+
+.button-62 {
+  border-radius: 12px;
+  border: 2px solid #f24f1366;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5rem;
+  padding: 0 1rem;
+
+  @include md {
+    font-size: 22px;
+    line-height: 3.5;
+    font-weight: 800;
+    padding: 0 3rem;
+  }
+}
+
+.source-btn-active{
+  background-color: #dc4b16;
+}
+
+#player1 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  object-fit: contain;
+  #ddplayer{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    object-fit: contain;
+    @include md {
+      margin: 50px;
+      width: calc(100vw - 100px) !important;
+      height: calc(100vh - 200px) !important;
+      margin-top: 100px;
+    }
+    width: calc(100vw - 10px) !important;
+    height: 300px !important;
+    video{
+      width: 100%;
+    }
+  }
+}
+
+#dd{
+  position: absolute;
+  height: 400px !important;
+  z-index: 2;
+  @include md {
+      height: calc(100vh - 150px) !important;
+  }
+}
+
+.backdrop1-img {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 400px;
+  z-index: 1;
+  opacity: 0.4;
+  overflow: hidden;
+  .lazy-load-image-background {
+      width: 100%;
+      height: 100%;
+      img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          object-position: center;
+      }
+  }
+  @include md {
+    height: calc(100vh - 150px) !important;
+}
+}
+
+#seasons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#seasonsDropdown{
+  margin: 20px;
+  padding: 20px;
+  font-size: 24px;
+  width: calc(100% - 40px);
+  border-radius: 12px;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: var(--black);
+  line-height: 4rem;
+  border: 2px solid #ffffff;
+  @include sm{
+    text-align: center;
+    width: calc(100% - 100px);
+  }
+}
+
+.season-option{
+  font-size: 24px;
+}
+
+.episode-container-anime {
+  gap: 8px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.episode-div{
+  text-align: center;
+  border-radius: 12px;
+  border: 2px solid #f24f1366;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  line-height: 2rem;
+  padding: 4px;
+  width: 100px;
+  @include md {
+    font-size: 16px;
+    line-height: 2rem;
+    padding: 8px;
+  }
+}
+.episode-div-active{
+  background-color: #dc4b16;
+}
