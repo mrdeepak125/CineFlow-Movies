@@ -4,9 +4,13 @@
 # Cineflow  Website
 
 ![Cineflex Logo](https://res.cloudinary.com/djdi5hkyx/image/upload/v1725260012/Screenshot_2024-09-02_122003_lvnwyf.png)
+# Home
 ![Cineflex Logo](https://res.cloudinary.com/djdi5hkyx/image/upload/v1725260012/Screenshot_2024-09-02_122011_wotaia.png)
+# Anime
 ![Cineflex Logo](https://res.cloudinary.com/djdi5hkyx/image/upload/v1725260013/Screenshot_2024-09-02_122043_ebg10u.png)
+# Tv
 ![Cineflex Logo](https://res.cloudinary.com/djdi5hkyx/image/upload/v1725260013/Screenshot_2024-09-02_122034_ydgbsf.png)
+# Live Tv
 ![Cineflex Logo](https://res.cloudinary.com/djdi5hkyx/image/upload/v1725260012/Screenshot_2024-09-02_122050_u6e4tk.png)
 
 The Cineflow  Website is a web application that aims to replicate the popular , Netflix. It provides users with the ability to browse and stream a wide range of movies and TV shows on-demand. The website is built using React, CSS, Javascript and Html with additional libraries and frameworks as needed.
