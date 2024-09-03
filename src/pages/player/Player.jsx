@@ -41,9 +41,9 @@ const sources = [
     ],
   },
   {
-    remotestream: [
-      "https://remotestre.am/e/?tmdb=ID",
-      "https://remotestre.am/e/?tmdb=ID&s=sea&e=epi",
+    NontonGo: [
+      "https://www.NontonGo.win/embed/movie/ID",
+      "https://www.NontonGo.win/embed/tv/?id=ID&s=sea&e=epi",
     ],
   },
 ];
@@ -108,7 +108,7 @@ const Player = () => {
           );
           break;
         case 6:
-          selectedSource = sources[6].remotestream[1].replace(
+          selectedSource = sources[6].NontonGo[1].replace(
             "ID&s=sea&e=epi",
             `${id}&s=${sea}&e=${epi}`
           );
@@ -141,7 +141,7 @@ const Player = () => {
           selectedSource = sources[5].moviesapi[0].replace("ID", id);
           break;
         case 6:
-          selectedSource = sources[6].remotestream[0].replace("ID", id);
+          selectedSource = sources[6].NontonGo[0].replace("ID", id);
           break;
         default:
           selectedSource = sources[0].embedcc[0].replace("ID", id);
