@@ -70,8 +70,11 @@ const Header = () => {
         else if(type==="anime"){
             navigate("/explore/anime");
         }
-        else{
+        else if(type==="livetv"){
             navigate("/explore/livetv");
+        }
+        else{
+            navigate("/explore/login");
         }
         setMobileMenu(false);
     };
@@ -109,6 +112,12 @@ const Header = () => {
                     >
                         Live TV
                     </li>
+                    {/* <li
+                        className="menuItem"
+                        onClick={() => navigationHandler("login")}
+                    >
+                        Log in
+                    </li> */}
                     <li className="menuItem">
                         <HiOutlineSearch onClick={openSearch} />
                     </li>

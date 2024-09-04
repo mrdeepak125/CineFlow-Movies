@@ -23,9 +23,9 @@ const sources = [
     ],
   },
   {
-    multiembedvip: [
-      "https://multiembed.mov/directstream.php?video_id=ID&tmdb=1",
-      "https://multiembed.mov/directstream.php?video_id=ID&tmdb=1&s=sea&e=epi",
+    autoembed: [
+      "https://player.autoembed.cc/embed/movie/ID",
+      "https://player.autoembed.cc/embed/tv/ID/sea/epi",
     ],
   },
   {
@@ -90,7 +90,7 @@ const Player = () => {
           );
           break;
         case 3:
-          selectedSource = sources[3].multiembedvip[1].replace(
+          selectedSource = sources[3].autoembed[1].replace(
             "ID&tmdb=1&s=sea&e=epi",
             `${id}&tmdb=1&s=${sea}&e=${epi}`
           );
@@ -132,7 +132,7 @@ const Player = () => {
           selectedSource = sources[2].multiembed[0].replace("ID", id);
           break;
         case 3:
-          selectedSource = sources[3].multiembedvip[0].replace("ID", id);
+          selectedSource = sources[3].autoembed[0].replace("ID", id);
           break;
         case 4:
           selectedSource = sources[4].vidsrc[0].replace("ID", id);
