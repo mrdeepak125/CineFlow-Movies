@@ -91,8 +91,8 @@ const Player = () => {
           break;
         case 3:
           selectedSource = sources[3].autoembed[1].replace(
-            "ID&tmdb=1&s=sea&e=epi",
-            `${id}&tmdb=1&s=${sea}&e=${epi}`
+            "ID/sea/epi",
+            `${id}/${sea}/${epi}`
           );
           break;
         case 4:
