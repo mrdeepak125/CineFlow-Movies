@@ -13,6 +13,16 @@ import Spinner from "../../components/spinner/Spinner";
 
 let filters = {};
 
+// Generate years from 1900 to current year
+const generateYears = () => {
+    const currentYear = new Date().getFullYear();
+    let years = [];
+    for (let i = currentYear; i >= 1900; i--) {
+        years.push({ value: i, label: i });
+    }
+    return years;
+};
+
 const sortbyData = [
     { value: "popularity.desc", label: "Popularity Descending" },
     { value: "popularity.asc", label: "Popularity Ascending" },
@@ -32,6 +42,7 @@ const Explore = () => {
     const [loading, setLoading] = useState(false);
     const [genre, setGenre] = useState(null);
     const [sortby, setSortby] = useState(null);
+    const [year, setYear] = useState(null); // State for year selection
     const { mediaType } = useParams();
 
     const { data: genresData } = useFetch(`/genre/${mediaType}/list`);
@@ -68,6 +79,7 @@ const Explore = () => {
         setPageNum(1);
         setSortby(null);
         setGenre(null);
+        setYear(null); // Reset year on mediaType change
         fetchInitialData();
     }, [mediaType]);
 
@@ -90,6 +102,20 @@ const Explore = () => {
             } else {
                 delete filters.with_genres;
             }
+        }
+
+        setPageNum(1);
+        fetchInitialData();
+    };
+
+    const onYearChange = (selectedYear) => {
+        setYear(selectedYear);
+        if (selectedYear) {
+            filters.primary_release_year = selectedYear.value;
+            filters.with_original_language = "hi";
+        } else {
+            delete filters.primary_release_year;
+            delete filters.with_original_language;
         }
 
         setPageNum(1);
@@ -127,6 +153,16 @@ const Explore = () => {
                             isClearable={true}
                             placeholder="Sort by"
                             className="react-select-container sortbyDD"
+                            classNamePrefix="react-select"
+                        />
+                        <Select
+                            name="year"
+                            value={year}
+                            options={generateYears()}
+                            onChange={onYearChange}
+                            isClearable={true}
+                            placeholder="Select Year"
+                            className="react-select-container genresDD"
                             classNamePrefix="react-select"
                         />
                     </div>
