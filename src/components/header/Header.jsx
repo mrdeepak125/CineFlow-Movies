@@ -110,7 +110,7 @@ const Header = () => {
                     {/* <li className="menuItem"> */}
                         <ExploreProfile />
                     {/* </li> */}
-                    <li className="menuItem">
+                    <li className="menuItem"> 
                         <HiOutlineSearch onClick={openSearch} />
                     </li>
                 </ul>
