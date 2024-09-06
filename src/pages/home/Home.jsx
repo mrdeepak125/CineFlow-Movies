@@ -10,10 +10,12 @@ import TopThrillers from "./topTrilar/TopThrillers";
 import TopSciFi from "./topScifi/TopSciFi";
 import TopHorror from "./TopHorror/TopHorror";
 import TopKids from "./topKids/topKids";
+import { Analytics } from "@vercel/analytics/react"
 
 const Home = () => {
     return (
         <div className="homePage">
+            <Analytics />
             <HeroBanner />
             <Trending />
             <Popular />
