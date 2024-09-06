@@ -46,28 +46,49 @@ const sources = [
       "https://www.NontonGo.win/embed/tv/?id=ID&s=sea&e=epi",
     ],
   },
+  {
+    awstream: [
+      "https://beta.awstream.net/watch?v=title-8211-episode-1&lang=hindi",
+      "https://beta.awstream.net/watch?v=title-8211-episode-01&lang=hindi",
+      "https://beta.awstream.net/watch?v=title-season--02-8211-episode-7&lang=hindi",
+    ],
+  },
 ];
 
 const Player = () => {
   let backdrop_path = localStorage.getItem("current_backdrop_path");
   const storedSeasonsInfo = localStorage.getItem("current_seasons_info");
-  const seasonsDataTemp = storedSeasonsInfo
-    ? JSON.parse(storedSeasonsInfo)
-    : [];
+  const seasonsDataTemp = storedSeasonsInfo ? JSON.parse(storedSeasonsInfo) : [];
   const seasonsData = seasonsDataTemp?.filter(
     (season) => season?.name !== "Specials"
   );
   const [selectedSeason, setSelectedSeason] = useState(1);
   const [selectedEpisode, setSelectedEpisode] = useState(1);
-  const { mediaType, id } = useParams();
+  const { mediaType, id, title } = useParams();
   const [selectedSourceIndex, setSelectedSourceIndex] = useState(2);
   const [selectedSource, setSelectedSource] = useState("");
 
-  const makeSource = () => {
-    let selectedSource;
-    let epi = selectedEpisode;
+  const formatTitle = (title) => {
+    return title.replace(/\s+/g, "-");
+  };
+
+  const fetchEpisodeFormat = async (episodeNumber) => {
+    // Here, fetch or determine the format from the API response
+    // Simulating API response check
+    const episodeFormats = ["01", "001", "0001", "2", "02", "3", "03", "4", "04","05", "6", "06", "7", "07", "8", "08", "9", "09"]; // This simulates possible API responses
+    const formattedEpisode = episodeFormats.find((format) =>
+      format.endsWith(episodeNumber.toString())
+    );
+
+    return formattedEpisode || episodeNumber.toString();
+  };
+
+  const makeSource = async () => {
+    let epi = await fetchEpisodeFormat(selectedEpisode); // Fetch or determine the episode format
     let sea = selectedSeason;
     let index = selectedSourceIndex;
+    const formattedTitle = formatTitle(title);
+    let selectedSource;
 
     if (mediaType == "tv") {
       switch (index || 0) {
@@ -113,6 +134,20 @@ const Player = () => {
             `${id}&s=${sea}&e=${epi}`
           );
           break;
+          case 7: // For awstream TV API
+          selectedSource =
+            sea === 1
+              ? sources[7].awstream[1].replace(
+                  "title-8211-episode-01",
+                  `${formattedTitle}-8211-episode-${epi}`
+                )
+              : sources[7].awstream[2].replace(
+                  "title-season--02-8211-episode-7",
+                  `${formattedTitle}-season--${sea
+                    .toString()
+                    .padStart(2, "0")}-8211-episode-${epi}`
+                );
+          break;
         default:
           selectedSource = sources[0].embedcc[1].replace(
             "ID&s=sea&e=epi",
@@ -142,6 +177,12 @@ const Player = () => {
           break;
         case 6:
           selectedSource = sources[6].NontonGo[0].replace("ID", id);
+          break;
+        case 7: // For awstream Movie API
+          selectedSource = sources[7].awstream[0].replace(
+            "title-8211-episode-1",
+            `${formattedTitle}-8211-episode-1`
+          );
           break;
         default:
           selectedSource = sources[0].embedcc[0].replace("ID", id);

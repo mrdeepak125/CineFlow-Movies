@@ -103,7 +103,7 @@ const DetailsBanner = ({ video, crew }) => {
                       <div
                         className="playbtn"
                         onClick={() => {
-                          navigate(`/player/${mediaType}/${id}`);
+                          navigate(`/player/${mediaType}/${id}/${data.name || data.title}`);
                         }}
                       >
                         <PlayIcon />
