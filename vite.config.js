@@ -3,16 +3,21 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+  server: {
+    proxy: {
+      '/api': 'https://server-t4sa.onrender.com/',
+    }
+  },
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
-        name : "Cinema World",
+        name : "Cine Flow",
         short_name: "Cinema",
-        theme_color: "#A91D3A",
-        background_color: "#151515",
+        theme_color: "#020c1b",
+        background_color: "#173d77",
         start_url: "/",
         display: "standalone",
         orientation: "portrait",
