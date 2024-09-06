@@ -1,42 +1,71 @@
-import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import PropTypes from 'prop-types';
 
-export default function ExploreLogin() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+export default function ExploreLogin({ setUser }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
+  
+  const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setError("");
 
     try {
-      const res = await fetch("/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await axios.post(
+        'https://server-t4sa.onrender.com/api/login',
+        { email, password, rememberMe },
+        { withCredentials: true ,}
+      );
 
-      const result = await res.json();
-
-      if (result.success) {
-        // Store the token in localStorage or a cookie if needed
-        localStorage.setItem("token", result.data.token);
-        // Redirect to the home page or another protected route
-        window.location.href = "/";
+      if (response.data.success) {
+        toast.success("Login successful!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "dark",
+        });
+        setTimeout(() => {
+          setUser(response.data.data);
+          navigate('/');
+        }, 500);
       } else {
-        setError(result.message);
+        toast.info(response.data.message || "Login failed!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "dark",
+        });
       }
-    } catch (err) {
-      setError("An error occurred. Please try again.");
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Login failed", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: "dark",
+      });
+      console.error("Login error:", toast.success); // Debug error
     } finally {
       setLoading(false);
     }
+  };
+
+  ExploreLogin.propTypes = {
+    setUser: PropTypes.func.isRequired,
   };
 
   return (
@@ -70,7 +99,6 @@ export default function ExploreLogin() {
             backgroundClip: "initial",
             backgroundColor: "rgba(17, 25, 40, 0.75)",
             padding: "1rem",
-            position: "relative",
             top: "100px",
           }}
         >
@@ -119,17 +147,19 @@ export default function ExploreLogin() {
               padding: "1.25rem 1.5rem",
             }}
           >
-            <form onSubmit={handleSubmit} style={{ boxSizing: "border-box" }}>
-            {error && (
-                <div
-                  style={{
-                    color: "red",
-                    marginBottom: "1rem",
-                  }}
-                >
-                  {error}
-                </div>
-              )}
+            <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+          />
+            <form action="" style={{ boxSizing: "border-box" }}>
               <div
                 className="mb-4"
                 style={{ boxSizing: "border-box", marginBottom: "1.5rem" }}
@@ -201,8 +231,8 @@ export default function ExploreLogin() {
                   <input
                     type="email"
                     className="form-control"
+                    id="email"
                     placeholder="example@company.com"
-                    id="exampleInputEmailCard1"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -301,7 +331,7 @@ export default function ExploreLogin() {
                   <input
                     type="password"
                     placeholder="Password"
-                    id="exampleInputPasswordCard1"
+                    id="password"
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -353,9 +383,11 @@ export default function ExploreLogin() {
                   }}
                 >
                   <input
-                    id="defaultCheck5"
                     className="form-check-input"
+                    id="rememberMe"
                     type="checkbox"
+                    checked={rememberMe}
+                    onChange={(e) => setRememberMe(e.target.checked)}
                     style={{
                       boxSizing: "border-box",
                       margin: "0px",
@@ -363,7 +395,7 @@ export default function ExploreLogin() {
                       fontSize: "inherit",
                       lineHeight: "inherit",
                       backgroundPosition: "50% center",
-                      appearance: "none",
+                      appearance: "auto",
                       backgroundRepeat: "no-repeat",
                       backgroundSize: "contain",
                       height: "1.125em",
@@ -413,6 +445,7 @@ export default function ExploreLogin() {
                 style={{ boxSizing: "border-box", display: "grid" }}
               >
                 <button
+                  onClick={handleLogin}
                   type="submit"
                   className="btn btn-primary"
                   disabled={loading}
@@ -438,6 +471,7 @@ export default function ExploreLogin() {
                       "linear-gradient(180deg,hsla(0,0%,100%,.15),hsla(0,0%,100%,0))",
                     boxShadow: "rgba(18, 21, 26, 0.075) 0px 1px 1px",
                     color: "rgb(255, 255, 255)",
+                    cursor: 'pointer',
                   }}
                 >
                   {loading ? "Loading..." : "Sign In"}

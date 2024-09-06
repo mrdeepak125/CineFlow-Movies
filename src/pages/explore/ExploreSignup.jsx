@@ -1,47 +1,70 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
-export default function ExploreSignup() {
-  const navigate = useNavigate();
-  const [username, setUsername] = useState("");
+export default function ExploreSignup({ setUser }) {
+  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSignup = async (e) => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
-    // Reset error
-    setError("");
-
-    // Prepare the request payload
     const payload = {
-      username,
+      userName,
       email,
       password,
     };
 
     try {
-      const response = await fetch("http://localhost:3000/api/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
+      const response = await axios.post("https://server-t4sa.onrender.com/api/signup", 
+        { userName, email, password },
+        { withCredentials: true }
+      );
+      if (response.data.success) {
+      toast.success("SignUp successful!", {
+        position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "dark",
       });
-
-      if (response.ok) {
-        // Redirect to login page on successful signup
-        navigate("/explore/login");
-      } else {
-        // Handle errors
-        const result = await response.json();
-        setError(result.message || "Something went wrong, please try again.");
-      }
-    } catch (error) {
-      setError("Network error: Please check your connection and try again.");
+      setTimeout(() => {
+        setUser(response.data.data);
+        navigate('/explore/login');
+      }, 500);
+    } else {
+      toast.info(response.data.message || "Signup failed!", {
+        position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "dark",
+      });
     }
-  };
+  } catch (error) { 
+    toast.error(error.response?.data?.message || "Network error: Please check your connection and try again.", {
+      position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: "dark",
+    });
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <>
@@ -74,7 +97,6 @@ export default function ExploreSignup() {
             backgroundClip: "initial",
             backgroundColor: "rgba(17, 25, 40, 0.75)",
             padding: "1rem",
-            position: "relative",
             top: "100px",
           }}
         >
@@ -123,18 +145,19 @@ export default function ExploreSignup() {
               padding: "1.25rem 1.5rem",
             }}
           >
-            {error && (
-              <div
-                style={{
-                  boxSizing: "border-box",
-                  color: "red",
-                  marginBottom: "1rem",
-                }}
-              >
-                {error}
-              </div>
-            )}
-            <form onSubmit={handleSignup} style={{ boxSizing: "border-box" }}>
+            <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+          />
+            <form action="" style={{ boxSizing: "border-box" }}>
               <div
                 className="mb-4"
                 style={{ boxSizing: "border-box", marginBottom: "1.5rem" }}
@@ -202,8 +225,7 @@ export default function ExploreSignup() {
                     type="text"
                     required
                     placeholder="@User name"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
+                    value={userName} onChange={(e) => setUserName(e.target.value)}
                     style={{
                       boxSizing: "border-box",
                       margin: "0px",
@@ -297,8 +319,7 @@ export default function ExploreSignup() {
                     type="email"
                     required
                     placeholder="Email Address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={email} onChange={(e) => setEmail(e.target.value)} 
                     style={{
                       boxSizing: "border-box",
                       margin: "0px",
@@ -392,8 +413,7 @@ export default function ExploreSignup() {
                     type="password"
                     required
                     placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={password} onChange={(e) => setPassword(e.target.value)} 
                     style={{
                       boxSizing: "border-box",
                       margin: "0px",
@@ -424,39 +444,9 @@ export default function ExploreSignup() {
                 className="mb-4"
                 style={{ boxSizing: "border-box", marginBottom: "1.5rem" }}
               >
-                <div className="form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="CheckCard1"
-                    required
-                    style={{
-                      boxSizing: "border-box",
-                      margin: "0px",
-                      position: "absolute",
-                      marginTop: "0.3rem",
-                      marginLeft: "-1.25rem",
-                    }}
-                  />
-                  <label
-                    className="form-check-label"
-                    htmlFor="CheckCard1"
-                    style={{
-                      boxSizing: "border-box",
-                      marginBottom: "0px",
-                      fontWeight: 400,
-                    }}
-                  >
-                    I agree to the <a href="#">terms and conditions</a>
-                  </label>
-                </div>
-              </div>
-              <div
-                className="mb-4"
-                style={{ boxSizing: "border-box", marginBottom: "1.5rem" }}
-              >
                 <button
                   type="submit"
+                  onClick={handleOnSubmit}
                   className="btn btn-primary w-100 py-2"
                   style={{
                     boxSizing: "border-box",
@@ -473,7 +463,7 @@ export default function ExploreSignup() {
                     display: "inline-block",
                   }}
                 >
-                  Sign up
+                  {loading ? "Loading..." : "Sign Up"}
                 </button>
               </div>
             </form>

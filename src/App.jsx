@@ -20,10 +20,13 @@ import PlayerAnime from "./pages/player/PlayerAnime";
 import ExploreTv from "./pages/explore/ExploreTv";
 import PlayerTv from "./pages/player/PlayerTv";
 import CastDetailsBanner from "./pages/details/cast/CastDetail";
+import ExploreLogin from "./pages/explore/ExploreLogin";
+import ExploreSignup from "./pages/explore/ExploreSignup";
 
 function App() {
     const dispatch = useDispatch();
     const { url } = useSelector((state) => state.home);
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
         fetchApiConfig();
@@ -72,6 +75,8 @@ function App() {
                 <Route path="/player/:mediaType/:id/:title" element={<Player />} />
                 <Route path="/search/:query" element={<SearchResult />} />
                 <Route path="/explore/anime" element={<ExploreAnime />} />
+                <Route path="/explore/login" element={<ExploreLogin setUser={setUser}/>} />
+                <Route path="/explore/signup" element={<ExploreSignup setUser={setUser}/>} />
                 <Route path="/explore/livetv" element={<ExploreTv />} />
                 <Route path="/explore/:mediaType" element={<Explore />} />
                 <Route path="/cast/:person_id" element={<CastDetailsBanner />} />

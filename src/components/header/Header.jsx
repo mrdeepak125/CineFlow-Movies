@@ -3,11 +3,11 @@ import { HiOutlineSearch } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
 import { useNavigate, useLocation } from "react-router-dom";
-
 import "./style.scss";
 
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import logo from "../../assets/cineflow-logo.png";
+import ExploreProfile from "../../pages/explore/exploreprofile";
 
 const Header = () => {
     const [show, setShow] = useState("top");
@@ -64,17 +64,12 @@ const Header = () => {
     const navigationHandler = (type) => {
         if (type === "movie") {
             navigate("/explore/movie");
-        } else if(type === "tv"){
+        } else if (type === "tv") {
             navigate("/explore/tv");
-        }
-        else if(type==="anime"){
+        } else if (type === "anime") {
             navigate("/explore/anime");
-        }
-        else if(type==="livetv"){
+        } else if (type === "livetv") {
             navigate("/explore/livetv");
-        }
-        else{
-            navigate("/explore/login");
         }
         setMobileMenu(false);
     };
@@ -112,12 +107,9 @@ const Header = () => {
                     >
                         Live TV
                     </li>
-                    {/* <li
-                        className="menuItem"
-                        onClick={() => navigationHandler("login")}
-                    >
-                        Log in
-                    </li> */}
+                    {/* <li className="menuItem"> */}
+                        <ExploreProfile />
+                    {/* </li> */}
                     <li className="menuItem">
                         <HiOutlineSearch onClick={openSearch} />
                     </li>
