@@ -18,7 +18,8 @@ const ExplorePage = () => {
         try {
           const response = await axios.get('https://server-t4sa.onrender.com/api/userInfo', {
             withCredentials: true,
-          });          
+          });
+                  
           if (response.data.success) {
             setUser(response.data.data);
             navigate('/'); // Redirect to home if already logged in
