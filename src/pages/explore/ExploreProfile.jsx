@@ -14,60 +14,57 @@ const ExplorePage = () => {
 
   useEffect(() => {
     if (!user) {
-      const fetchUserInfo = async () => {
-        try {
-          const response = await axios.get('https://server-t4sa.onrender.com/api/userInfo', {
-            withCredentials: true,
-          });
-                  
-          if (response.data.success) {
-            setUser(response.data.data);
-            navigate('/'); // Redirect to home if already logged in
-          }
-        } catch (error) {
-          setUser(null);
-        }
-      };
+        const fetchUserInfo = async () => {
+            try {
+                const response = await axios.get('https://server-t4sa.onrender.com/api/userInfo', {
+                    withCredentials: true,
+                });
 
-      fetchUserInfo();
+                if (response.data.success) {
+                    setUser(response.data.data);
+                    navigate('/'); // Redirect to home if user info is fetched
+                }
+            } catch (error) {
+                setUser(null); // Clear user if fetch fails
+            }
+        };
+
+        fetchUserInfo();
     }
-  }, [user, setUser, navigate]);
+}, [user, setUser, navigate]);
+
 
   const handleLogout = async () => {
     try {
-      const response = await axios.post('https://server-t4sa.onrender.com/api/logout', {}, {
-        withCredentials: true,
-      });
-      if (response.data.success) {
-        
-      toast.success("Logged out successfully!", {
-        position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          theme: "dark",
-      });
-      setTimeout(() => {
-        setUser(response.data.data);
-        navigate('/explore/login');
-      }, 500);
-    }
-
+        const response = await axios.post('https://server-t4sa.onrender.com/api/logout', {}, {
+            withCredentials: true,
+        });
+        if (response.data.success) {
+            toast.success("Logged out successfully!", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme: "dark",
+            });
+            setUser(null); // Clear user state
+            navigate('/explore/login'); // Redirect to login page
+        }
     } catch (error) {
-      toast.error('Error logging out!', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+        toast.error('Error logging out!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
     }
-  };
+};
 
   if (!user) {
     return (
