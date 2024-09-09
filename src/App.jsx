@@ -22,6 +22,8 @@ import PlayerTv from "./pages/player/PlayerTv";
 import CastDetailsBanner from "./pages/details/cast/CastDetail";
 import ExploreLogin from "./pages/explore/ExploreLogin";
 import ExploreSignup from "./pages/explore/ExploreSignup";
+import ExploreUploadMovie from "./pages/explore/ExploreUploadMovie.jsx";
+import ExploreUploadTv from "./pages/explore/ExploreUploadTv.jsx";
 
 function App() {
     const dispatch = useDispatch();
@@ -68,6 +70,8 @@ function App() {
             <Header />
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/explore/upload/movie" element={<ExploreUploadMovie />} />
+                <Route path="/explore/upload/tv" element={<ExploreUploadTv />} />
                 {/* <Route path="/anime/:id" element={<DetailsAnime />} /> */}
                 <Route path="/:mediaType/:id" element={<Details />} />
                 <Route path="/player/livetv/:id" element={<PlayerTv />} />

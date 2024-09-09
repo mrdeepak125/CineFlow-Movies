@@ -6,10 +6,10 @@ import { IoLogOut } from 'react-icons/io5';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "../../components/header/Header"
-import { UserContext } from '../../contexts/UserContext'; // Ensure this import is correct
+import { UserContext } from '../../contexts/UserContext';
 
 const ExplorePage = () => {
-  const { user, setUser } = useContext(UserContext); // Correctly destructure the context value
+  const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,10 +22,10 @@ const ExplorePage = () => {
 
                 if (response.data.success) {
                     setUser(response.data.data);
-                    navigate('/'); // Redirect to home if user info is fetched
+                    navigate('/');
                 }
             } catch (error) {
-                setUser(null); // Clear user if fetch fails
+                setUser(null);
             }
         };
 
@@ -49,8 +49,8 @@ const ExplorePage = () => {
                 draggable: true,
                 theme: "dark",
             });
-            setUser(null); // Clear user state
-            navigate('/explore/login'); // Redirect to login page
+            setUser(null);
+            navigate('/explore/login');
         }
     } catch (error) {
         toast.error('Error logging out!', {
@@ -70,7 +70,6 @@ const ExplorePage = () => {
     return (
         <li className="menuItem"
           onClick={() => navigate('/explore/login')}
-          // style={{ cursor: 'pointer', padding: '10px' }}
         >
           Log In
         </li>

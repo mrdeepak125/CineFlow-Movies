@@ -47,12 +47,18 @@ const sources = [
     ],
   },
   {
-    awstream: [
-      "https://beta.awstream.net/watch?v=title-8211-episode-1&lang=hindi",
-      "https://beta.awstream.net/watch?v=title-8211-episode-01&lang=hindi",
-      "https://beta.awstream.net/watch?v=title-season--02-8211-episode-7&lang=hindi",
+    CineFlow: [
+      "https://server-t4sa.onrender.com/tmdb/ID",
+      "https://server-t4sa.onrender.com/tmdb/TD/sea/epi",
     ],
   },
+  // {
+  //   awstream: [
+  //     "https://beta.awstream.net/watch?v=title-8211-episode-1&lang=hindi",
+  //     "https://beta.awstream.net/watch?v=title-8211-episode-01&lang=hindi",
+  //     "https://beta.awstream.net/watch?v=title-season--02-8211-episode-7&lang=hindi",
+  //   ],
+  // },
 ];
 
 const Player = () => {
@@ -67,27 +73,57 @@ const Player = () => {
   const { mediaType, id, title } = useParams();
   const [selectedSourceIndex, setSelectedSourceIndex] = useState(2);
   const [selectedSource, setSelectedSource] = useState("");
+  const [cineFlowUrl, setCineFlowUrl] = useState("");
+  const [isError, setIsError] = useState(false);
+  
+  // const formatTitle = (title) => {
+  //   return title.replace(/\s+/g, "-");
+  // };
 
-  const formatTitle = (title) => {
-    return title.replace(/\s+/g, "-");
-  };
+  // const fetchEpisodeFormat = async (episodeNumber) => {
+  //   // Here, fetch or determine the format from the API response
+  //   // Simulating API response check
+  //   const episodeFormats = ["01", "001", "0001", "2", "02", "3", "03", "4", "04","05", "6", "06", "7", "07", "8", "08", "9", "09"]; // This simulates possible API responses
+  //   const formattedEpisode = episodeFormats.find((format) =>
+  //     format.endsWith(episodeNumber.toString())
+  //   );
 
-  const fetchEpisodeFormat = async (episodeNumber) => {
-    // Here, fetch or determine the format from the API response
-    // Simulating API response check
-    const episodeFormats = ["01", "001", "0001", "2", "02", "3", "03", "4", "04","05", "6", "06", "7", "07", "8", "08", "9", "09"]; // This simulates possible API responses
-    const formattedEpisode = episodeFormats.find((format) =>
-      format.endsWith(episodeNumber.toString())
-    );
+  //   return formattedEpisode || episodeNumber.toString();
+  // };
 
-    return formattedEpisode || episodeNumber.toString();
-  };
+  // Fetch CineFlow data when needed
+// Fetch CineFlow data when needed
+const fetchCineFlowUrl = async () => {
+  try {
+    let apiUrl;
+
+    if (mediaType === "tv") {
+      // TV show API
+      apiUrl = `https://server-t4sa.onrender.com/tmdb/${id}/${selectedSeason}/${selectedEpisode}`;
+    } else {
+      // Movie API
+      apiUrl = `https://server-t4sa.onrender.com/tmdb/${id}`;
+    }
+
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    if (data.success && data.data.url) {
+      setCineFlowUrl(data.data.url);
+      setIsError(false);
+    } else {
+      setIsError(true);
+    }
+  } catch (error) {
+    console.error("Error fetching CineFlow data:", error);
+    setIsError(true);
+  }
+};
 
   const makeSource = async () => {
-    let epi = await fetchEpisodeFormat(selectedEpisode); // Fetch or determine the episode format
+    let epi = selectedEpisode;
     let sea = selectedSeason;
     let index = selectedSourceIndex;
-    const formattedTitle = formatTitle(title);
     let selectedSource;
 
     if (mediaType == "tv") {
@@ -134,20 +170,23 @@ const Player = () => {
             `${id}&s=${sea}&e=${epi}`
           );
           break;
-          case 7: // For awstream TV API
-          selectedSource =
-            sea === 1
-              ? sources[7].awstream[1].replace(
-                  "title-8211-episode-01",
-                  `${formattedTitle}-8211-episode-${epi}`
-                )
-              : sources[7].awstream[2].replace(
-                  "title-season--02-8211-episode-7",
-                  `${formattedTitle}-season--${sea
-                    .toString()
-                    .padStart(2, "0")}-8211-episode-${epi}`
-                );
-          break;
+        case 7:
+            await fetchCineFlowUrl(); // Fetch CineFlow URL
+            break;
+          // case 8:
+          // selectedSource =
+          //   sea === 1
+          //     ? sources[8].awstream[1].replace(
+          //         "title-8211-episode-01",
+          //         `${formattedTitle}-8211-episode-${epi}`
+          //       )
+          //     : sources[8].awstream[2].replace(
+          //         "title-season--02-8211-episode-7",
+          //         `${formattedTitle}-season--${sea
+          //           .toString()
+          //           .padStart(2, "0")}-8211-episode-${epi}`
+          //       );
+          // break;
         default:
           selectedSource = sources[0].embedcc[1].replace(
             "ID&s=sea&e=epi",
@@ -178,12 +217,15 @@ const Player = () => {
         case 6:
           selectedSource = sources[6].NontonGo[0].replace("ID", id);
           break;
-        case 7: // For awstream Movie API
-          selectedSource = sources[7].awstream[0].replace(
-            "title-8211-episode-1",
-            `${formattedTitle}-8211-episode-1`
-          );
-          break;
+        case 7:
+            await fetchCineFlowUrl(); // Fetch CineFlow URL
+            break;
+        // case 8:
+        //   selectedSource = sources[8].awstream[0].replace(
+        //     "title-8211-episode-1",
+        //     `${formattedTitle}-8211-episode-1`
+        //   );
+        //   break;
         default:
           selectedSource = sources[0].embedcc[0].replace("ID", id);
           break;
@@ -216,14 +258,34 @@ const Player = () => {
         <div className="backdrop1-img">
           <Img src={backdrop_path} />
         </div>
-        <iframe
-          id="dd"
-          src={selectedSource}
-          width="90%"
-          frameBorder="0"
-          scrolling="yes"
-          allowFullScreen
-        ></iframe>
+        {isError ? ( // Show 404 page if no data or error
+          <iframe
+            id="dd"
+            src="https://codepen.io/mallendeo/fullpage/MqOvZG?anon=true&view="
+            width="90%"
+            frameBorder="0"
+            scrolling="yes"
+            allowFullScreen
+          ></iframe>
+        ) : selectedSourceIndex === 7 ? (
+          <iframe
+            id="dd"
+            src={cineFlowUrl}
+            width="90%"
+            frameBorder="0"
+            scrolling="yes"
+            allowFullScreen
+          ></iframe>
+        ) : (
+          <iframe
+            id="dd"
+            src={selectedSource}
+            width="90%"
+            frameBorder="0"
+            scrolling="yes"
+            allowFullScreen
+          ></iframe>
+        )}
         <div className="source-buttons">
           {sources.map((source, index) => (
             <div
