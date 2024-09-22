@@ -102,7 +102,7 @@
         "channel_id": "559",
         "channel_name": "SONY SAB",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12081-j9oc38xc-v8/imageContent-12081-j9oc38xc-m7.png",
-        "channel_url": "https://bpprod2catchup.akamaized.net/bpk-tv/irdeto_com_Channel_126/output/manifest.mpd",
+        "channel_url": "https://dai.google.com/linear/hls/event/CrTivkDESWqwvUj3zFEYEA/master.m3u8",
         "key": [
             "fcf90127045f5edabc5d94a932f5c6fe:7371b5068aa09b691b1f60045f7b9659"
         ]
@@ -237,7 +237,7 @@
         "channel_id": "554",
         "channel_name": "Sony Pal",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12071-j9oa4gbc-v5/imageContent-12071-j9oa4gbc-m4.png",
-        "channel_url": "https://bpprod2catchup.akamaized.net/bpk-tv/irdeto_com_Channel_193/output/manifest.mpd",
+        "channel_url": "https://dai.google.com/linear/hls/event/dhPrGRwDRvuMQtmlzppzQQ/master.m3u8",
         "key": [
             "0b99991d837a5c5787a2b3984a7b92c9:5a0d6f8509cd77e9fc73caa834c37376"
         ]
@@ -399,7 +399,7 @@
         "channel_id": "245",
         "channel_name": "STAR GOLD HD",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/SGHD_Thumbnail-v2/SGHD_Thumbnail.png",
-        "channel_url": "https://bpprod4catchup.akamaized.net/bpk-tv/irdeto_com_Channel_412/output/manifest.mpd",
+        "channel_url": "http://103.81.104.118/hls/stream19.m3u8",
         "key": [
             "9e4332f746b453148b0bd0af4af4b68b:87f63eb612b43fc9fec8f6c0ed99261a"
         ]
@@ -588,7 +588,7 @@
         "channel_id": "7",
         "channel_name": "B4U Movies",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-18-j5f9ui8g-v1/imageContent-18-j5f9ui8g-m1.png",
-        "channel_url": "https://bpprod7catchup.akamaized.net/bpk-tv/irdeto_com_Channel_276/output/manifest.mpd",
+        "channel_url": "http://183.89.246.119:8881/play/a08n/index.m3u8",
         "key": [
             "ca0c9047ff71521891338c7c17c770dd:0c874793f21ba3105edcff25260f6058"
         ]
@@ -642,7 +642,7 @@
         "channel_id": "120",
         "channel_name": "SONY MAX 2",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-402-j5jq1gko-v3/imageContent-402-j5jq1gko-m4.png",
-        "channel_url": "https://bpprod7catchup.akamaized.net/bpk-tv/irdeto_com_Channel_199/output/manifest.mpd",
+        "channel_url": "https://dai.google.com/linear/hls/event/MdQ5Zy-PSraOccXu8jflCg/master.m3u8",
         "key": [
             "ba0fcc9269df5b449d95911ce98f4c1d:f78eb60f3c3128328f78119510504206"
         ]
@@ -714,7 +714,7 @@
         "channel_id": "1037",
         "channel_name": "Dhamaka Movies B4U",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/DHAMB4U_Thumbnail-v2/DHAMB4U_Thumbnail.png",
-        "channel_url": "https://bpprod7catchup.akamaized.net/bpk-tv/irdeto_com_Channel_1856/output/manifest.mpd",
+        "channel_url": "http://103.199.160.85/Content/moviehouse/Live/Channel(MovieHouse)/index.m3u8",
         "key": [
             "b59312af359752d88ba34b8b4c668dd8:2760333588735a6246f79840550193fe"
         ]
@@ -723,7 +723,7 @@
         "channel_id": "558",
         "channel_name": "SONY PIX",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12080-j9obub60-v6/imageContent-12080-j9obub60-m6.png",
-        "channel_url": "https://bpprod2catchup.akamaized.net/bpk-tv/irdeto_com_Channel_200/output/manifest.mpd",
+        "channel_url": "https://dai.google.com/linear/hls/event/x7rXWd2ERZ2tvyQWPmO1HA/master.m3u8",
         "key": [
             "79bd4f6d8dc15dfbbfeca842597ac9f1:522ef61a195c33cff5958246e2c47e3d"
         ]
@@ -912,7 +912,7 @@
         "channel_id": "177",
         "channel_name": "ABP News",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-759-j5m13014-v2/imageContent-759-j5m13014-m3.png",
-        "channel_url": "https://bpprod5catchup.akamaized.net/bpk-tv/irdeto_com_Channel_165/output/manifest.mpd",
+        "channel_url": "https://abplivetv.akamaized.net/hls/live/2043010/hindi/master.m3u8",
         "key": [
             "03f0668a519956c2ac00fafe4bdcda79:71943068aab4521a8825537a91f26cc2"
         ]
@@ -957,7 +957,7 @@
         "channel_id": "153",
         "channel_name": "Aaj Tak",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-537-j5kwkd88-v1/imageContent-537-j5kwkd88-m1.png",
-        "channel_url": "https://bpprod4catchup.akamaized.net/bpk-tv/irdeto_com_Channel_191/output/manifest.mpd",
+        "channel_url": "https://feeds.intoday.in/aajtak/api/aajtakhd/master.m3u8",
         "key": [
             "0b402fe0ba655bf18eb3eaecf801b2e2:418953890ab6a59507d7aa31d81ff26a"
         ]
@@ -966,7 +966,7 @@
         "channel_id": "259",
         "channel_name": "Zee News",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11110-j95ioyag-v1/imageContent-11110-j95ioyag-m1.png",
-        "channel_url": "https://bpprod3catchup.akamaized.net/bpk-tv/irdeto_com_Channel_420/output/manifest.mpd",
+        "channel_url": "https://ythls.armelin.one/channel/UCIvaYmXn910QMdemBG3v1pQ.m3u8",
         "key": [
             "f77aa6f4f9bc599e97cddb1afe6facf3:34accc1ab37f10298976bcad46f574d8"
         ]
@@ -1011,7 +1011,7 @@
         "channel_id": "514",
         "channel_name": "Zee Hindustan",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11978-j9lum7d4-v1/imageContent-11978-j9lum7d4-m1.png",
-        "channel_url": "https://bpprod4catchup.akamaized.net/bpk-tv/irdeto_com_Channel_840/output/manifest.mpd",
+        "channel_url": "https://d336l5u76wvq7j.cloudfront.net/out/v1/5990b42d2b7b40bc8e581e90afe6ef94/index_4.m3u8",
         "key": [
             "bd9a16bd60d9566983dfd48ab8bab90f:f95c82b41afc62f7d1eab7a70e8b1860"
         ]
@@ -1056,7 +1056,7 @@
         "channel_id": "706",
         "channel_name": "TV9 Bharatvarsh",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-67672-kwly0m4w-v1/imageContent-67672-kwly0m4w-m1.png",
-        "channel_url": "https://bpprod6catchup.akamaized.net/bpk-tv/irdeto_com_Channel_945/output/manifest.mpd",
+        "channel_url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9hinjzgtpe/liveabr/playlist.m3u8",
         "key": [
             "e12255ed8c0c592d856abf342a003842:0a3e3ac5fe605d562bc6206ee8df3c3d"
         ]
@@ -1794,7 +1794,7 @@
         "channel_id": "158",
         "channel_name": "SONY BBC Earth",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-551-j5ky7ufk-v5/imageContent-551-j5ky7ufk-m7.png",
-        "channel_url": "https://bpprod7catchup.akamaized.net/bpk-tv/irdeto_com_Channel_400/output/manifest.mpd",
+        "channel_url": "https://dai.google.com/linear/hls/event/6bVWYIKGS0CIa-cOpZZJPQ/master.m3u8",
         "key": [
             "9b5424ce88395495af266140da0bbd63:8c8dd568d1ede15d2f4722a360a29f59"
         ]
@@ -1884,7 +1884,7 @@
         "channel_id": "139",
         "channel_name": "9XM",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-468-j5jwdbi8-v1/imageContent-468-j5jwdbi8-m1.png",
-        "channel_url": "https://bpprod5catchup.akamaized.net/bpk-tv/irdeto_com_Channel_201/output/manifest.mpd",
+        "channel_url": "https://d2q8p4pe5spbak.cloudfront.net/bpk-tv/9XM/9XM.isml/index.m3u8",
         "key": [
             "00fbeecf80075f3884b8fc5a65f08710:ef04c2fd067aef77c2674b6e68e5c11b"
         ]
@@ -1947,7 +1947,7 @@
         "channel_id": "17",
         "channel_name": "Mastiii",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-57-j5fdr2f4-v1/imageContent-57-j5fdr2f4-m1.png",
-        "channel_url": "https://bpprod4catchup.akamaized.net/bpk-tv/irdeto_com_Channel_279/output/manifest.mpd",
+        "channel_url": "https://amg01448-samsungin-mastiiin-samsungin-o3n9m.amagi.tv/playlist/amg01448-samsungin-mastiiin-samsungin/playlist.m3u8",
         "key": [
             "1c3e65313fc455409060417ba69d7118:7815b9456dcbfb07a0fad558d0105115"
         ]
@@ -1956,7 +1956,7 @@
         "channel_id": "9",
         "channel_name": "B4U Music",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-24-j5fb33y0-v1/imageContent-24-j5fb33y0-m1.png",
-        "channel_url": "https://bpprod7catchup.akamaized.net/bpk-tv/irdeto_com_Channel_277/output/manifest.mpd",
+        "channel_url": "http://183.89.246.119:8881/play/a08o/index.m3u8",
         "key": [
             "ba38f0082ca0593dacf6310ce4c83dfc:a810680d5b5a6d0c4ed528e0dcb0004b"
         ]
@@ -1965,7 +1965,7 @@
         "channel_id": "39",
         "channel_name": "9X Jalwa",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-102-j5fl5pyg-v1/imageContent-102-j5fl5pyg-m1.png",
-        "channel_url": "https://bpprod4catchup.akamaized.net/bpk-tv/irdeto_com_Channel_355/output/manifest.mpd",
+        "channel_url": "https://amg01281-9xmediapvtltd-9xjalwa-samsungin-goszf.amagi.tv/playlist/amg01281-9xmediapvtltd-9xjalwa-samsungin/playlist.m3u8",
         "key": [
             "54a27517cfa05543850ad9a36d1950b9:c3ffae41295ba7b6562068067d53bb8f"
         ]
@@ -2244,7 +2244,7 @@
         "channel_id": "637",
         "channel_name": "Zee Uttar Pradesh Uttarakhand",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-21315-je85i72w-v1/imageContent-21315-je85i72w-m5.png",
-        "channel_url": "https://bpprod6catchup.akamaized.net/bpk-tv/irdeto_com_Channel_874/output/manifest.mpd",
+        "channel_url": "https://ythls.armelin.one/channel/UCWmwc3u2ikBG2Xfitc_26gg.m3u8",
         "key": [
             "00802358a63d58f3999dbdcb63294ed7:fd89769bd00d5162f6637e30a9d92c6e"
         ]
@@ -2253,7 +2253,7 @@
         "channel_id": "20",
         "channel_name": "Zee Bihar Jharkhand",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11140-j96syfuo-v1/imageContent-11140-j96syfuo-m1.png",
-        "channel_url": "https://bpprod4catchup.akamaized.net/bpk-tv/irdeto_com_Channel_389/output/manifest.mpd",
+        "channel_url": "https://d3vmwjy7v49lo5.cloudfront.net/index_4.m3u8",
         "key": [
             "e0411ff305d45e55aceb9f9a55dedd07:f98ff0b30be3995f67f228cf6b89a3f6"
         ]
@@ -2433,7 +2433,7 @@
         "channel_id": "583",
         "channel_name": "Zee Rajasthan News",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12158-j9pd883k-v1/imageContent-12158-j9pd883k-m1.png",
-        "channel_url": "https://bpprod3catchup.akamaized.net/bpk-tv/irdeto_com_Channel_831/output/manifest.mpd",
+        "channel_url": "https://d3596fuob34tr0.cloudfront.net/out/v1/dc9cd568b52340d9a694877ad4b103a8/index.m3u8",
         "key": [
             "5e41fbb50127548092cff8ca2c6ee31b:685bf59d3dbc128abce415256df815e7"
         ]
@@ -2577,7 +2577,7 @@
         "channel_id": "658",
         "channel_name": "Sony Marathi",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-30959-jky1nic8-v2/imageContent-30959-jky1nic8-m3.png",
-        "channel_url": "https://bpprod4catchup.akamaized.net/bpk-tv/irdeto_com_Channel_892/output/manifest.mpd",
+        "channel_url": "https://dai.google.com/linear/hls/event/I2phC6tgTDuJngxw9gJgPw/master.m3u8",
         "key": [
             "f32bf5a269ec57f1bb1b6900755b0a5a:5de47e872920c110ec9c58d1e5bca50e"
         ]
@@ -2622,7 +2622,7 @@
         "channel_id": "155",
         "channel_name": "ABP Majha",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/STMJNW_Thumbnail-v3/STMJNW_Thumbnail.png",
-        "channel_url": "https://bpprod4catchup.akamaized.net/bpk-tv/irdeto_com_Channel_328/output/manifest.mpd",
+        "channel_url": "https://abplivetv.akamaized.net/hls/live/2043011/manjha/master.m3u8",
         "key": [
             "af15a5b14f055e7d8c02192ccf90fcb3:8fc06175ae3cccc625a97fb363083170"
         ]
@@ -2694,7 +2694,7 @@
         "channel_id": "97",
         "channel_name": "TV9 Marathi",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-315-j5jjsht4-v2/imageContent-315-j5jjsht4-m2.png",
-        "channel_url": "https://bpprod4catchup.akamaized.net/bpk-tv/irdeto_com_Channel_364/output/manifest.mpd",
+        "channel_url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9marlygv8h/liveabr/playlist.m3u8",
         "key": [
             "09c917c18c6e51019bfb97df75189163:ac430ad47a126f8ae57dc271508c5ef3"
         ]
@@ -2757,7 +2757,7 @@
         "channel_id": "34",
         "channel_name": "SONY AATH",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-94-j5fjveio-v3/imageContent-94-j5fjveio-m2.png",
-        "channel_url": "https://bpprod4catchup.akamaized.net/bpk-tv/irdeto_com_Channel_285/output/manifest.mpd",
+        "channel_url": "https://dai.google.com/linear/hls/event/j-YEIDwORxubtP_967VcZg/master.m3u8",
         "key": [
             "4d76a20252105f72babdace28e0a8217:8d7eecc23b34da5bd53c00ec0b08e4d3"
         ]
@@ -2865,7 +2865,7 @@
         "channel_id": "102",
         "channel_name": "ABP Ananda",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-321-j5jl5g5k-v2/imageContent-321-j5jl5g5k-m2.png",
-        "channel_url": "https://bpprod5catchup.akamaized.net/bpk-tv/irdeto_com_Channel_249/output/manifest.mpd",
+        "channel_url": "https://ythls.armelin.one/channel/UC3C6_1ETXfE807LltDbKYxg.m3u8",
         "key": [
             "938800350d905ce8974ffd7a70b45db3:e8ffec5d6c9fbdf8fa823d9041023d03"
         ]
@@ -3144,7 +3144,7 @@
         "channel_id": "11",
         "channel_name": "TV9 Telugu",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-30-j5fc0v80-v2/imageContent-30-j5fc0v80-m2.png",
-        "channel_url": "https://bpprod7catchup.akamaized.net/bpk-tv/irdeto_com_Channel_290/output/manifest.mpd",
+        "channel_url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9telcmjhcs/liveabr/playlist.m3u8",
         "key": [
             "0c5d0ae912c35d88b88df3ace04c8158:2db353ea1c93b0e0fb4809f42795addb"
         ]
@@ -3261,7 +3261,7 @@
         "channel_id": "1099",
         "channel_name": "Prime 9 News",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/PR9NEWS_Thumbnail-v2/PR9NEWS_Thumbnail.png",
-        "channel_url": "https://bpprod5catchup.akamaized.net/bpk-tv/irdeto_com_Channel_1910/output/manifest.mpd",
+        "channel_url": "https://ythls.armelin.one/channel/UCLTZ5y21NnklrxpU5AfWd8w.m3u8",
         "key": [
             "65b962550e445da8a930ff03e75470b5:c20605574e3f30286a6aa526ded20b82"
         ]
@@ -3918,7 +3918,7 @@
         "channel_id": "152",
         "channel_name": "TV9 Kannada",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-531-j5kuelug-v2/imageContent-531-j5kuelug-m2.png",
-        "channel_url": "https://bpprod4catchup.akamaized.net/bpk-tv/irdeto_com_Channel_317/output/manifest.mpd",
+        "channel_url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9kanmo6oiq/liveabr/playlist.m3u8",
         "key": [
             "498738043f0150948278f0559e23280f:2dec2f71495249a81bef4e11f592c00b"
         ]
@@ -4071,7 +4071,7 @@
         "channel_id": "489",
         "channel_name": "TV9 Gujarati",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11874-j9l376yg-v2/imageContent-11874-j9l376yg-m2.png",
-        "channel_url": "https://bpprod6catchup.akamaized.net/bpk-tv/irdeto_com_Channel_803/output/manifest.mpd",
+        "channel_url": "https://dyjmyiv3bp2ez.cloudfront.net/pub-iotv9guj3ki8lu/liveabr/playlist.m3u8",
         "key": [
             "f9aae973f673575ca973098cda99a3e9:3f640a71f5ff00ec53b3d46f7abd67a4"
         ]
@@ -4332,7 +4332,7 @@
         "channel_id": "684",
         "channel_name": "Zee Keralam",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-9003-j7rlh2aw-v2/imageContent-9003-j7rlh2aw-m2.png",
-        "channel_url": "https://bpprod6catchup.akamaized.net/bpk-tv/irdeto_com_Channel_926/output/manifest.mpd",
+        "channel_url": "https://cflive-esports-hindi.zee5.com/out/v1/c2a01fab468b452d9af1a1aa66644d9d/Zee_Keralam_ME_SD/index.m3u8",
         "key": [
             "001b7158f7b657f79c75ad56b0d23060:758c8628b5b1ee3c2a67eff5cfca0591"
         ]
@@ -4422,7 +4422,7 @@
         "channel_id": "532",
         "channel_name": "Asianet News",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12020-j9ntf12w-v1/imageContent-12020-j9ntf12w-m1.png",
-        "channel_url": "https://bpprod6catchup.akamaized.net/bpk-tv/irdeto_com_Channel_466/output/manifest.mpd",
+        "channel_url": "https://vidcdn.vidgyor.com/asianet-origin/liveabr/playlist.m3u8",
         "key": [
             "37c7e271dccf5f7fabae4804a0831180:2cd614d9f8c540ed5ae3a637f2cb604c"
         ]
@@ -4710,7 +4710,7 @@
         "channel_id": "262",
         "channel_name": "Zee Delhi NCR Haryana",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-35649-jrz9mhq0-v2/imageContent-35649-jrz9mhq0-m2.PNG",
-        "channel_url": "https://bpprod4catchup.akamaized.net/bpk-tv/irdeto_com_Channel_428/output/manifest.mpd",
+        "channel_url": "https://ythls.armelin.one/channel/UCG6L5cIg2XZvXVksq5B9edw.m3u8",
         "key": [
             "811474dded845f4ca4a27f2c73bb4c0d:3255dc5431e1fef782ae45f576af517f"
         ]
@@ -4791,7 +4791,7 @@
         "channel_id": "922",
         "channel_name": "PTC Music",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-63498-kqq89g5k-v2/imageContent-63498-kqq89g5k-m3.png",
-        "channel_url": "https://bpprod2catchup.akamaized.net/bpk-tv/irdeto_com_Channel_1322/output/manifest.mpd",
+        "channel_url": "https://streaming.ptcplay.com/ptcMusicINOne/smil:Live.smil/playlist.m3u8",
         "key": [
             "646d3c19587b578aafb4708e0c3d9e48:541ad0f82fe37907d2e7576657a37829"
         ]
