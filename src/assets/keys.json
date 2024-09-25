@@ -21,7 +21,7 @@
         "channel_id": "8",
         "channel_name": "STAR Plus HD",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-25307-jhrhflww-v1/imageContent-25307-jhrhflww-m1.png",
-        "channel_url": "https://d75dqofg5kmfk.cloudfront.net/bpk-tv/Zing1/default/zing.m3u8",
+        "channel_url": "http://217.20.112.199/starplushd/index.m3u8",
         "key": [
             "1cbe293fdc385dac8c0d502b04f338e4:508a60ec650583798fa0214c364ae596"
         ]
@@ -129,7 +129,7 @@
         "channel_id": "244",
         "channel_name": "Star Bharat HD",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-6895-j6vqhqnc-v2/imageContent-6895-j6vqhqnc-m2.png",
-        "channel_url": "https://bpprod6catchup.akamaized.net/bpk-tv/irdeto_com_Channel_411/output/manifest.mpd",
+        "channel_url": "http://tv.cloudcdn.me/live.ts?channelId=195&uid=13603&deviceMac=00:1A:79:64:B4:A6",
         "key": [
             "bbbc36a45c7a5ec4878e04c437853b09:ec2353b02f54483761d14567ecc15b60"
         ]
@@ -219,7 +219,7 @@
         "channel_id": "523",
         "channel_name": "Zee Anmol",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11969-j9luigc0-v2/imageContent-11969-j9luigc0-m2.png",
-        "channel_url": "https://bpprod3catchup.akamaized.net/bpk-tv/irdeto_com_Channel_826/output/manifest.mpd",
+        "channel_url": "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Zeeanmol1/default/zeeanmol1.m3u8",
         "key": [
             "164c0214a66956899071a13afbbe6eba:e2edfddfd3a89e532b054677c7dd4007"
         ]
@@ -426,7 +426,7 @@
         "channel_id": "503",
         "channel_name": "Zee Cinema HD",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11915-j9l5clzs-v1/imageContent-11915-j9l5clzs-m1.png",
-        "channel_url": "https://bpprod6catchup.akamaized.net/bpk-tv/irdeto_com_Channel_827/output/manifest.mpd",
+        "channel_url": "https://d75dqofg5kmfk.cloudfront.net/bpk-tv/Zeecinemahd1/default/zeecinemahd.m3u8",
         "key": [
             "8576c517301c5e9388595360dae8b086:710b91a868e5a04dc85610beaea09eb0"
         ]
@@ -471,7 +471,7 @@
         "channel_id": "123",
         "channel_name": "Zee Cinema",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11027-j8yjr8k0-v1/imageContent-11027-j8yjr8k0-m1.png",
-        "channel_url": "https://bpprod5catchup.akamaized.net/bpk-tv/irdeto_com_Channel_185/output/manifest.mpd",
+        "channel_url": "https://d75dqofg5kmfk.cloudfront.net/bpk-tv/Zeecinema1/default/zeecinema.m3u8",
         "key": [
             "5279eed19efe5b31923808751e15bf2f:b8c009d49f1f0e48bade1551c874dac6"
         ]
@@ -561,7 +561,7 @@
         "channel_id": "100",
         "channel_name": "Zee Action",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11024-j8yix4g8-v1/imageContent-11024-j8yix4g8-m1.png",
-        "channel_url": "https://bpprod5catchup.akamaized.net/bpk-tv/irdeto_com_Channel_205/output/manifest.mpd",
+        "channel_url": "https://d75dqofg5kmfk.cloudfront.net/bpk-tv/Zeeaction1/default/zeeaction.m3u8",
         "key": [
             "393d8ec0cb0354d7bde916ad5fe13b55:ad0c623105a0b9049279abbe932e55a8"
         ]
@@ -588,7 +588,7 @@
         "channel_id": "7",
         "channel_name": "B4U Movies",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-18-j5f9ui8g-v1/imageContent-18-j5f9ui8g-m1.png",
-        "channel_url": "http://183.89.246.119:8881/play/a08n/index.m3u8",
+        "channel_url": "https://shls-live-ak.akamaized.net/out/v1/46079e838e65490c8299f902a7731168/index.m3u8",
         "key": [
             "ca0c9047ff71521891338c7c17c770dd:0c874793f21ba3105edcff25260f6058"
         ]
@@ -1524,7 +1524,7 @@
         "channel_id": "681",
         "channel_name": "Cartoon Network HD+",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-34164-jok06xoo-v1/imageContent-34164-jok06xoo-m1.png",
-        "channel_url": "https://bpprod7catchup.akamaized.net/bpk-tv/irdeto_com_Channel_925/output/manifest.mpd",
+        "channel_url": "https://amg01448-samsungin-cartoonnw-samsungin-1y8kz.amagi.tv/playlist/amg01448-samsungin-cartoonnw-samsungin/cb553d1e786c648b93d43d63d5ef41a4d3246ad3032e90703dff06c231901d468ca2f9d3f537b63619d714af3f5e2f0e0433db18dd6511b6802eea0e6d287f09cfcceb2ada861317b3c60e383ebb281700ab0941d8380220dcec5759d438b0340446b00a230f338fbe51aa7e55978808821d57b189e5a4fd04706ded294fdfd20ffda8bd0c118d2ff9932372a75e26c7199604e6368ff19702cf69b66cc1168caa08baf212e7868bfa2a50c24d1bb2ccf90b774fb3833797c9936876b879294d1f6fb8c9cbfc4a7292524159fafadfbe37b04a80d165c94c3eb5158014a53e8e79a500a3a11ff3e4fbfe4c452babcd5f590aa5e1a98ba87a62f337b5f39bbd091c93944c2a5fa8718f3a353705d56f1c4b0b9a90d86276/82/640x360_1284800/index.m3u8",
         "key": [
             "f581424c14e35eee924f0a0b9d22c81c:3553f635fdb1b3f006d9aeb8ed7341eb"
         ]
@@ -1569,7 +1569,7 @@
         "channel_id": "238",
         "channel_name": "Cartoon Network",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11161-j99h67u8-v1/imageContent-11161-j99h67u8-m1.png",
-        "channel_url": "https://bpprod3catchup.akamaized.net/bpk-tv/irdeto_com_Channel_405/output/manifest.mpd",
+        "channel_url": "https://amg01448-samsungin-cartoonnw-samsungin-1y8kz.amagi.tv/playlist/amg01448-samsungin-cartoonnw-samsungin/playlist.m3u8",
         "key": [
             "37da44b2890a5445bae74e315802850c:85aef421289081f788d821782023e911"
         ]
@@ -1578,7 +1578,25 @@
         "channel_id": "119",
         "channel_name": "Discovery Kids",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-24724-jgvwokqw-v1/imageContent-24724-jgvwokqw-m1.png",
-        "channel_url": "https://bpprod6catchup.akamaized.net/bpk-tv/irdeto_com_Channel_130/output/manifest.mpd",
+        "channel_url": "https://dplus.gammacdn.workers.dev/videos/113.m3u8",
+        "key": [
+            "4fb04a8b851b5b90b14b5400640ec533:9ce13b6d2fecd2c9f9899232163a41d9"
+        ]
+    },
+    {
+        "channel_id": "1191",
+        "channel_name": "KIDS CREATION",
+        "channel_logo": "https://kidscreation.tv/wp-content/uploads/2022/11/KidsCreation-Logo-1.png",
+        "channel_url": "https://vods1.aynaott.com/kidscreation_test/tracks-v1a1/mono.m3u8",
+        "key": [
+            "4fb04a8b851b5b90b14b5400640ec533:9ce13b6d2fecd2c9f9899232163a41d9"
+        ]
+    },
+    {
+        "channel_id": "1192",
+        "channel_name": "KIDS FLIX",
+        "channel_logo": "https://www.kidsflix.com/themes/custom/viva/kidsflix/logo.png",
+        "channel_url": "https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=50",
         "key": [
             "4fb04a8b851b5b90b14b5400640ec533:9ce13b6d2fecd2c9f9899232163a41d9"
         ]
@@ -1632,7 +1650,7 @@
         "channel_id": "45",
         "channel_name": "SONY YAY!",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-132-j5fpedbs-v4/imageContent-132-j5fpedbs-m6.png",
-        "channel_url": "https://bpprod3catchup.akamaized.net/bpk-tv/irdeto_com_Channel_365/output/manifest.mpd",
+        "channel_url": "http://tv.cloudcdn.me/live.ts?channelId=78849&uid=8164&deviceMac=00:1A:79:17:D4:A1",
         "key": [
             "77de287e104b5c369d554be9364e8d36:122bb43d53b0461c0e4bba5954a40cb5"
         ]
@@ -1650,7 +1668,7 @@
         "channel_id": "144",
         "channel_name": "Disney Junior",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-35368-jr3xz7xs-v1/imageContent-35368-jr3xz7xs-m1.png",
-        "channel_url": "https://bpprod4catchup.akamaized.net/bpk-tv/irdeto_com_Channel_167/output/manifest.mpd",
+        "channel_url": "http://tv.cloudcdn.me/live.ts?channelId=250&uid=13603&deviceMac=00:1A:79:64:B4:A6",
         "key": [
             "d7ebcd866c3454cfac63a19ac6f615fa:08bad163c54efea5067f0d76371f4e34"
         ]
@@ -1722,7 +1740,7 @@
         "channel_id": "287",
         "channel_name": "Animal Planet HD World",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-44915-jzuyh3w0-v1/imageContent-44915-jzuyh3w0-m1.png",
-        "channel_url": "https://bpprod6catchup.akamaized.net/bpk-tv/irdeto_com_Channel_457/output/manifest.mpd",
+        "channel_url": "https://denver1769.pages.dev/Discovery/animal_planet_hd_english.m3u8",
         "key": [
             "2f43c71dda015c63a1f7b53bda6c0120:219061dfa01106e1b6de0582da2366cb"
         ]
@@ -1956,7 +1974,7 @@
         "channel_id": "9",
         "channel_name": "B4U Music",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-24-j5fb33y0-v1/imageContent-24-j5fb33y0-m1.png",
-        "channel_url": "http://183.89.246.119:8881/play/a08o/index.m3u8",
+        "channel_url": "https://cdn2.pishow.tv/live/141/master.m3u8",
         "key": [
             "ba38f0082ca0593dacf6310ce4c83dfc:a810680d5b5a6d0c4ed528e0dcb0004b"
         ]
@@ -2874,7 +2892,16 @@
         "channel_id": "1132",
         "channel_name": "Rongeen TV",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/RONGEEN_Thumbnail-v1/RONGEEN_Thumbnail.png",
-        "channel_url": "https://bpprod5catchup.akamaized.net/bpk-tv/irdeto_com_Channel_1926/output/manifest.mpd",
+        "channel_url": "https://server.thelegitpro.in/rongeentv/rongeentv/tracks-v1a1/mono.m3u8",
+        "key": [
+            "68e7ddca27ae516d897a1f92aa47be0f:a83b1c6fff27db702e961910a004036b"
+        ]
+    },
+    {
+        "channel_id": "11321",
+        "channel_name": "TOON GOOGLE",
+        "channel_logo": "https://i.imgur.com/oyIMxzM.png",
+        "channel_url": "https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=36",
         "key": [
             "68e7ddca27ae516d897a1f92aa47be0f:a83b1c6fff27db702e961910a004036b"
         ]
