@@ -29,16 +29,16 @@ const PlayerAnime = () => {
       let config = {
         method: "get",
         maxBodyLength: Infinity,
-        url: `https://proxymaster-1-q6640207.deta.app/fetch/https://api.anix.cc/movies/detail/${id}`,
+        url: `https://proxymaster-1-q6640207.deta.app/fetch/https://api.anix.my/movies/detail/${id}`,
         headers: {
-          authority: "api.anix.cc",
+          authority: "api.anix.my",
           accept: "application/json",
           "accept-language": "en-US,en;q=0.5",
           "cache-control": "no-cache",
           "content-type": "application/json",
-          origin: "https://www.anix.cc",
+          origin: "https://www.anix.my",
           pragma: "no-cache",
-          referer: "https://www.anix.cc/",
+          referer: "https://www.anix.my/",
           "sec-ch-ua":
             '"Chromium";v="122", "Not(A:Brand";v="24", "Brave";v="122"',
           "sec-ch-ua-mobile": "?0",
@@ -70,16 +70,16 @@ const PlayerAnime = () => {
         let config = {
           method: "get",
           maxBodyLength: Infinity,
-          url: `https://proxymaster-1-q6640207.deta.app/fetch/https://api.anix.cc/episodes/detail/${slug}`,
+          url: `https://proxymaster-1-q6640207.deta.app/fetch/https://api.anix.my/episodes/detail/${slug}`,
           headers: {
-            authority: "api.anix.cc",
+            authority: "api.anix.my",
             accept: "application/json",
             "accept-language": "en-US,en;q=0.5",
             "cache-control": "no-cache",
             "content-type": "application/json",
-            origin: "https://www.anix.cc",
+            origin: "https://www.anix.my",
             pragma: "no-cache",
-            referer: "https://www.anix.cc/",
+            referer: "https://www.anix.my/",
             "sec-ch-ua":
               '"Chromium";v="122", "Not(A:Brand";v="24", "Brave";v="122"',
             "sec-ch-ua-mobile": "?0",

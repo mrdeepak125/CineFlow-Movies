@@ -11,7 +11,7 @@ const fetchAnimeData = async (pageNum) => {
   let config = {
     method: "get",
     maxBodyLength: Infinity,
-    url: `https://proxymaster-1-q6640207.deta.app/fetch/https://api.anix.cc/movies/filter?limit=40&select=slug%2Cmovie%2Ctype%2Clatest_episode%2Cthumb%2Cname%2Csub_category%2Creleased_year%2Cgenres%2Cstate%2Cintro%2Ccreated_at%2Cother_names&sort_by=latest_episode.created_at&page=${pageNum}`,
+    url: `https://proxymaster-1-q6640207.deta.app/fetch/https://api.anix.my/movies/filter?limit=40&select=slug%2Cmovie%2Ctype%2Clatest_episode%2Cthumb%2Cname%2Csub_category%2Creleased_year%2Cgenres%2Cstate%2Cintro%2Ccreated_at%2Cother_names&sort_by=latest_episode.created_at&page=${pageNum}`,
     headers: {
       accept: "application/json",
       "accept-language": "en-US,en;q=0.5",
@@ -32,7 +32,7 @@ const fetchSearchData = async (query) => {
   let config = {
     method: "get",
     maxBodyLength: Infinity,
-    url: `https://proxymaster-1-q6640207.deta.app/fetch/https://api.anix.cc/movies/filter?limit=80&keywords=${query}`,
+    url: `https://proxymaster-1-q6640207.deta.app/fetch/https://api.anix.my/movies/filter?limit=80&keywords=${query}`,
     headers: {
       accept: "application/json",
       "accept-language": "en-US,en;q=0.5",

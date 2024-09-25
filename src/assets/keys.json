@@ -21,7 +21,7 @@
         "channel_id": "8",
         "channel_name": "STAR Plus HD",
         "channel_logo": "https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-25307-jhrhflww-v1/imageContent-25307-jhrhflww-m1.png",
-        "channel_url": "https://bpprod7catchup.akamaized.net/bpk-tv/irdeto_com_Channel_257/output/manifest.mpd",
+        "channel_url": "https://d75dqofg5kmfk.cloudfront.net/bpk-tv/Zing1/default/zing.m3u8",
         "key": [
             "1cbe293fdc385dac8c0d502b04f338e4:508a60ec650583798fa0214c364ae596"
         ]
