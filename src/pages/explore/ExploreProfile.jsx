@@ -112,7 +112,7 @@ const ExplorePage = () => {
                     <div className='useremail' style={{
                         color: "white",
                         overflow: "hidden",
-                        maxWidth: "200px",
+                        maxWidth: "120px",
                         textOverflow: "ellipsis",
                     }}><strong>{username}</strong></div>
                     <li className="logout" style={{
