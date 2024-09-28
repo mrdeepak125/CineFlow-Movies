@@ -1,28 +1,32 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import axios from 'axios';
+import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import axios from "axios";
 
-export default function Login() {
-  const [credentials, setCredentials] = useState({ username: '', password: '' });
+export default function ResetPassword() {
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-
-  const handleChange = (e) => {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value });
-  };
+  const { token } = useParams();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      return toast.error("Passwords do not match");
+    }
     setIsLoading(true);
     try {
-      const response = await axios.post('https://cineflow-server-lada.onrender.com/api/login', credentials);
-      localStorage.setItem('token', response.data.token);
-      toast.success('Login successful');
-      navigate('/');
+      await axios.post("https://cineflow-server-lada.onrender.com/api/reset-password", {
+        token,
+        password,
+      });
+      toast.success("Password reset successfully");
+      navigate("/explore/login");
     } catch (error) {
-      console.error('Login error:', error.response?.data || error.message);
-      toast.error(error.response?.data?.message || 'An error occurred. Please try again.');
+      toast.error(
+        error.response?.data?.message || "An error occurred. Please try again."
+      );
     } finally {
       setIsLoading(false);
     }
@@ -90,14 +94,12 @@ export default function Login() {
                 color: "rgb(255, 255, 255)",
               }}
             >
-              Login to our platform Cine-Flow
+              Reset Password
             </h2>
             <span
               className="text-muted"
               style={{ boxSizing: "border-box", color: "rgb(156, 163, 175)" }}
-            >
-              Login here using your username and password
-            </span>
+            ></span>
           </div>
           <div
             className="card-body"
@@ -114,14 +116,109 @@ export default function Login() {
               >
                 <label
                   className="mb-2"
-                  htmlFor="username"
+                  htmlFor="password"
                   style={{
                     boxSizing: "border-box",
                     display: "inline-block",
                     marginBottom: "0.5rem",
                   }}
                 >
-                  Your Email
+                  New Password
+                </label>
+                <div
+                  className="input-group"
+                  style={{
+                    boxSizing: "border-box",
+                    alignItems: "stretch",
+                    display: "flex",
+                    flexWrap: "wrap",
+                    position: "relative",
+                    width: "100%",
+                  }}
+                >
+                  <span
+                    id="basic-addon3"
+                    className="input-group-text"
+                    style={{
+                      boxSizing: "border-box",
+                      borderRadius: "4px",
+                      padding: "0.5rem 1rem",
+                      whiteSpace: "nowrap",
+                      alignItems: "center",
+                      display: "flex",
+                      fontSize: "1rem",
+                      fontWeight: 400,
+                      lineHeight: 1.5,
+                      textAlign: "center",
+                      border: "1px solid rgb(75, 86, 99)",
+                      backgroundColor: "rgb(31, 42, 55)",
+                      color: "rgb(255, 255, 255)",
+                      borderBottomRightRadius: "0px",
+                      borderTopRightRadius: "0px",
+                    }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="bi bi-person-fill-lock"
+                      fill="white"
+                      viewBox="0 0 16 16"
+                      style={{
+                        boxSizing: "border-box",
+                        verticalAlign: "middle",
+                        height: "1rem",
+                      }}
+                    >
+                      <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5v-1a2 2 0 0 1 .01-.2 4.49 4.49 0 0 1 1.534-3.693Q8.844 9.002 8 9c-5 0-6 3-6 4m7 0a1 1 0 0 1 1-1v-1a2 2 0 1 1 4 0v1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1zm3-3a1 1 0 0 0-1 1v1h2v-1a1 1 0 0 0-1-1" />
+                    </svg>
+                  </span>
+                  <input
+                    className="form-control"
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    placeholder="Enter New Password"
+                    style={{
+                      boxSizing: "border-box",
+                      margin: "0px",
+                      fontFamily: "inherit",
+                      borderRadius: "4px",
+                      padding: "0.5rem 1rem",
+                      appearance: "none",
+                      backgroundClip: "padding-box",
+                      display: "block",
+                      fontSize: "1rem",
+                      fontWeight: 400,
+                      lineHeight: 1.5,
+                      flex: "1 1 auto",
+                      minWidth: "0px",
+                      position: "relative",
+                      width: "1%",
+                      border: "1px solid rgb(75, 86, 99)",
+                      backgroundColor: "rgb(31, 42, 55)",
+                      color: "rgb(255, 255, 255)",
+                      borderBottomLeftRadius: "0px",
+                      borderTopLeftRadius: "0px",
+                      marginLeft: "-1px",
+                    }}
+                  />
+                </div>
+              </div>
+              <div
+                className="mb-4"
+                style={{ boxSizing: "border-box", marginBottom: "1.5rem" }}
+              >
+                <label
+                  className="mb-2"
+                  htmlFor="confirmPassword"
+                  style={{
+                    boxSizing: "border-box",
+                    display: "inline-block",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  Confirm New Password
                 </label>
                 <div
                   className="input-group"
@@ -155,137 +252,28 @@ export default function Login() {
                       borderTopRightRadius: "0px",
                     }}
                   >
-                     <svg
-                      className="icon icon-xs"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
-                      style={{
-                        boxSizing: "border-box",
-                        verticalAlign: "middle",
-                        height: "1rem",
-                      }}
-                    >
-                      <path
-                        d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
-                        style={{ boxSizing: "border-box" }}
-                      />
-                      <path
-                        d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
-                        style={{ boxSizing: "border-box" }}
-                      />
-                    </svg>
-                  </span>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="username"
-                    name="username"
-                    onChange={handleChange}
-                    placeholder="youremail@company.com"
-                    required
-                    // value={email}
-                    style={{
-                      boxSizing: "border-box",
-                      margin: "0px",
-                      fontFamily: "inherit",
-                      borderRadius: "4px",
-                      padding: "0.5rem 1rem",
-                      appearance: "none",
-                      backgroundClip: "padding-box",
-                      display: "block",
-                      fontSize: "1rem",
-                      fontWeight: 400,
-                      lineHeight: 1.5,
-                      flex: "1 1 auto",
-                      minWidth: "0px",
-                      position: "relative",
-                      width: "1%",
-                      border: "1px solid rgb(75, 86, 99)",
-                      backgroundColor: "rgb(31, 42, 55)",
-                      color: "rgb(255, 255, 255)",
-                      borderBottomLeftRadius: "0px",
-                      borderTopLeftRadius: "0px",
-                      marginLeft: "-1px",
-                    }}
-                  />
-                </div>
-              </div>
-              <div
-                className="mb-4"
-                style={{ boxSizing: "border-box", marginBottom: "1.5rem" }}
-              >
-                <label
-                  className="mb-2"
-                  htmlFor="password"
-                  style={{
-                    boxSizing: "border-box",
-                    display: "inline-block",
-                    marginBottom: "0.5rem",
-                  }}
-                >
-                  Your Password
-                </label>
-                <div
-                  className="input-group"
-                  style={{
-                    boxSizing: "border-box",
-                    alignItems: "stretch",
-                    display: "flex",
-                    flexWrap: "wrap",
-                    position: "relative",
-                    width: "100%",
-                  }}
-                >
-                  <span
-                    id="basic-addon2"
-                    className="input-group-text"
-                    style={{
-                      boxSizing: "border-box",
-                      borderRadius: "4px",
-                      padding: "0.5rem 1rem",
-                      whiteSpace: "nowrap",
-                      alignItems: "center",
-                      display: "flex",
-                      fontSize: "1rem",
-                      fontWeight: 400,
-                      lineHeight: 1.5,
-                      textAlign: "center",
-                      border: "1px solid rgb(75, 86, 99)",
-                      backgroundColor: "rgb(31, 42, 55)",
-                      color: "rgb(255, 255, 255)",
-                      borderBottomRightRadius: "0px",
-                      borderTopRightRadius: "0px",
-                    }}
-                  >
                     <svg
-                      className="icon icon-xs"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
+                      class="bi bi-person-fill-lock"
+                      fill="white"
+                      viewBox="0 0 16 16"
                       style={{
                         boxSizing: "border-box",
                         verticalAlign: "middle",
                         height: "1rem",
                       }}
                     >
-                      <path
-                        clipRule="evenodd"
-                        d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                        fillRule="evenodd"
-                        style={{ boxSizing: "border-box" }}
-                      />
+                      <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h5v-1a2 2 0 0 1 .01-.2 4.49 4.49 0 0 1 1.534-3.693Q8.844 9.002 8 9c-5 0-6 3-6 4m7 0a1 1 0 0 1 1-1v-1a2 2 0 1 1 4 0v1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1zm3-3a1 1 0 0 0-1 1v1h2v-1a1 1 0 0 0-1-1" />
                     </svg>
                   </span>
                   <input
-                    type="password"
-                    placeholder="Password"
-                    id="password"
-                    name="password"
-                    onChange={handleChange}
-                    required
-                    minLength={8}
                     className="form-control"
+                    type="password"
+                    id="confirmPassword"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required
+                    placeholder="Confirm New Password"
                     style={{
                       boxSizing: "border-box",
                       margin: "0px",
@@ -310,84 +298,6 @@ export default function Login() {
                       marginLeft: "-1px",
                     }}
                   />
-                </div>
-              </div>
-              <div
-                className="d-block d-sm-flex justify-content-between align-items-center mb-4"
-                style={{
-                  boxSizing: "border-box",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginBottom: "1.5rem",
-                  display: "flex",
-                }}
-              >
-                <div
-                  className="form-check mb-0"
-                  style={{
-                    boxSizing: "border-box",
-                    display: "block",
-                    minHeight: "1.5rem",
-                    paddingLeft: "1.625em",
-                    marginBottom: "0px",
-                  }}
-                >
-                  <input
-                    className="form-check-input"
-                    id="rememberMe"
-                    type="checkbox"
-                    // checked={rememberMe}
-                    // onChange={(e) => setRememberMe(e.target.checked)}
-                    style={{
-                      boxSizing: "border-box",
-                      margin: "0px",
-                      fontFamily: "inherit",
-                      fontSize: "inherit",
-                      lineHeight: "inherit",
-                      backgroundPosition: "50% center",
-                      appearance: "auto",
-                      backgroundRepeat: "no-repeat",
-                      backgroundSize: "contain",
-                      height: "1.125em",
-                      marginTop: "0.1875em",
-                      WebkitPrintColorAdjust: "exact",
-                      verticalAlign: "top",
-                      width: "1.125em",
-                      cssFloat: "left",
-                      marginLeft: "-1.625em",
-                      borderRadius: "0.25em",
-                      border: "1px solid rgb(75, 86, 99)",
-                      backgroundColor: "rgb(31, 42, 55)",
-                      cursor: "pointer",
-                    }}
-                  />
-                  <label
-                    className="form-check-label mb-0"
-                    htmlFor="defaultCheck5"
-                    style={{
-                      boxSizing: "border-box",
-                      display: "inline-block",
-                      marginBottom: "0px",
-                    }}
-                  >
-                    Remember me
-                  </label>
-                </div>
-                <div style={{ boxSizing: "border-box" }}>
-                  <Link
-                    className="small text-right"
-                    to="/explore/forgot-password"
-                    style={{
-                      boxSizing: "border-box",
-                      textDecoration: "none",
-                      transition: "none",
-                      color: "rgb(0, 170, 255)",
-                      fontWeight: 500,
-                      fontSize: "0.875em",
-                    }}
-                  >
-                    Forgot password?
-                  </Link>
                 </div>
               </div>
               <div
@@ -421,107 +331,13 @@ export default function Login() {
                       "linear-gradient(180deg,hsla(0,0%,100%,.15),hsla(0,0%,100%,0))",
                     boxShadow: "rgba(18, 21, 26, 0.075) 0px 1px 1px",
                     color: "rgb(255, 255, 255)",
-                    cursor: 'pointer',
+                    cursor: "pointer",
                   }}
                 >
-                 {isLoading ? 'Logging in...' : 'Login'}
+                  {isLoading ? "Resetting..." : "Reset Password"}
                 </button>
               </div>
             </form>
-            <div
-              className="d-block d-sm-flex align-items-center mt-4"
-              style={{
-                boxSizing: "border-box",
-                alignItems: "center",
-                marginTop: "1.5rem",
-                display: "flex",
-              }}
-            >
-              <span
-                className="fw-normal small"
-                onClick={() => navigate("/explore/signup")}
-                style={{
-                  boxSizing: "border-box",
-                  fontSize: "0.875em",
-                  fontWeight: 400,
-                }}
-              >
-                Not registered?
-                <a
-                  className="fw-bold ms-2"
-                  // href="/explore/signup"
-                  style={{
-                    boxSizing: "border-box",
-                    textDecoration: "none",
-                    transition: "none",
-                    color: "rgb(0, 170, 255)",
-                    marginLeft: "0.5rem",
-                    fontWeight: 500,
-                    cursor: "pointer"
-                  }}
-                >
-                  Create account
-                </a>
-              </span>
-            </div>
-            <div
-                className="mb-4"
-                style={{ display: "flex",
-                  margin: "15px",
-                  justifyContent: "center", }}
-              >
-                <button className="button"
-                onClick={() => window.location.href = 'https://cineflow-server-lada.onrender.com/api/auth/google'}
-                style={{
-                  // maxWidth: "320px",
-                  display: "flex",
-                  padding: "0.5rem 1.4rem",
-                  fontSize: "0.875rem",
-                  lineHeight: "1.25rem",
-                  fontWeight: "700",
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  verticalAlign: "middle",
-                  alignItems: "center",
-                  borderRadius: "0.5rem",
-                  border: "1px solid rgba(0, 0, 0, 0.25)",
-                  gap: "0.75rem",
-                  color: "rgb(65, 63, 63)",
-                  backgroundColor: "#fff",
-                  cursor: "pointer",
-                  transition: "all .6s ease",
-                  // width:"100%",
-                }}
-                >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      preserveAspectRatio="xMidYMid"
-                      viewBox="0 0 256 262"
-                      style={{
-                        height: "24px",
-                      }}
-                    >
-                      <path
-                        fill="#4285F4"
-                        d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"
-                      />
-                      <path
-                        fill="#34A853"
-                        d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"
-                      />
-                      <path
-                        fill="#FBBC05"
-                        d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782"
-                      />
-                      <path
-                        fill="#EB4335"
-                        d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"
-                      />
-                    </svg>
-                    Login with Google
-                  </button>
-
-              </div>
           </div>
         </div>
       </div>

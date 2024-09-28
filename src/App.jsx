@@ -5,6 +5,7 @@ import { fetchDataFromApi } from "./utils/api";
 
 import { useSelector, useDispatch } from "react-redux";
 import { getApiConfiguration, getGenres } from "./store/homeSlice";
+import { ToastContainer } from 'react-toastify';
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -24,11 +25,13 @@ import ExploreLogin from "./pages/explore/ExploreLogin";
 import ExploreSignup from "./pages/explore/ExploreSignup";
 import ExploreUploadMovie from "./pages/explore/ExploreUploadMovie.jsx";
 import ExploreUploadTv from "./pages/explore/ExploreUploadTv.jsx";
+import EmailVerification from "./pages/explore/ExploreVerify-Email.jsx";
+import ForgotPassword from "./pages/explore/ExploreForgotPassword.jsx";
+import ResetPassword from "./pages/explore/ExploreResetPassword.jsx";
 
 function App() {
     const dispatch = useDispatch();
     const { url } = useSelector((state) => state.home);
-    const [user, setUser] = useState(null);
 
     useEffect(() => {
         fetchApiConfig();
@@ -79,14 +82,18 @@ function App() {
                 <Route path="/player/:mediaType/:id/:title" element={<Player />} />
                 <Route path="/search/:query" element={<SearchResult />} />
                 <Route path="/explore/anime" element={<ExploreAnime />} />
-                <Route path="/explore/login" element={<ExploreLogin setUser={setUser}/>} />
-                <Route path="/explore/signup" element={<ExploreSignup setUser={setUser}/>} />
+                <Route path="/explore/login" element={<ExploreLogin />} />
+                <Route path="/explore/signup" element={<ExploreSignup />} />
+                <Route path="/explore/reset-password/:token" element={<ResetPassword />} />
+                <Route path="/explore/forgot-password" element={<ForgotPassword />} />
+                <Route path="/explore/verify-email" element={<EmailVerification />} />
                 <Route path="/explore/livetv" element={<ExploreTv />} />
                 <Route path="/explore/:mediaType" element={<Explore />} />
                 <Route path="/cast/:person_id" element={<CastDetailsBanner />} />
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
             {/* <Footer /> */}
+            <ToastContainer position="top-center" autoClose={5000} />
         </Router>
     );
 }

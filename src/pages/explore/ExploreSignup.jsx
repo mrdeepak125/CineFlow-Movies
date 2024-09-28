@@ -1,70 +1,30 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate, Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 
-export default function ExploreSignup({ setUser }) {
-  const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+export default function ExploreSignup() {
+  const [user, setUser] = useState({ username: '', email: '', password: '' });
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleOnSubmit = async (e) => {
+  const handleChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-
-    const payload = {
-      userName,
-      email,
-      password,
-    };
-
+    setIsLoading(true);
     try {
-      const response = await axios.post("https://server-t4sa.onrender.com/api/signup", 
-        { userName, email, password },
-        { withCredentials: true }
-      );
-      if (response.data.success) {
-      toast.success("SignUp successful!", {
-        position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          theme: "dark",
-      });
-      setTimeout(() => {
-        setUser(response.data.data);
-        navigate('/explore/login');
-      }, 500);
-    } else {
-      toast.info(response.data.message || "Signup failed!", {
-        position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          theme: "dark",
-      });
+      await axios.post('https://cineflow-server-lada.onrender.com/api/signup', user);
+      toast.success('Signup successful. Please check your email for verification.');
+      navigate('/explore/verify-email', { state: { email: user.email } });
+    } catch (error) {
+      toast.error(error.response?.data?.message || 'An error occurred. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
-  } catch (error) { 
-    toast.error(error.response?.data?.message || "Network error: Please check your connection and try again.", {
-      position: "top-center",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          theme: "dark",
-    });
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   return (
     <>
@@ -145,33 +105,21 @@ export default function ExploreSignup({ setUser }) {
               padding: "1.25rem 1.5rem",
             }}
           >
-            <ToastContainer
-              position="top-center"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="dark"
-          />
-            <form action="" style={{ boxSizing: "border-box" }}>
+            <form onSubmit={handleSubmit} style={{ boxSizing: "border-box" }}>
               <div
                 className="mb-4"
                 style={{ boxSizing: "border-box", marginBottom: "1.5rem" }}
               >
                 <label
                   className="mb-2"
-                  htmlFor="UsernameInputCard1"
+                  htmlFor="username"
                   style={{
                     boxSizing: "border-box",
                     display: "inline-block",
                     marginBottom: "0.5rem",
                   }}
                 >
-                  Your Username
+                   Username
                 </label>
                 <div
                   className="input-group"
@@ -220,12 +168,13 @@ export default function ExploreSignup({ setUser }) {
                     </svg>
                   </span>
                   <input
-                    id="UsernameInputCard1"
-                    className="form-control"
                     type="text"
+                    id="username"
+                    name="username"
+                    onChange={handleChange}
                     required
+                    className="form-control"
                     placeholder="@User name"
-                    value={userName} onChange={(e) => setUserName(e.target.value)}
                     style={{
                       boxSizing: "border-box",
                       margin: "0px",
@@ -258,14 +207,14 @@ export default function ExploreSignup({ setUser }) {
               >
                 <label
                   className="mb-2"
-                  htmlFor="exampleInputEmailCard1"
+                  htmlFor="email"
                   style={{
                     boxSizing: "border-box",
                     display: "inline-block",
                     marginBottom: "0.5rem",
                   }}
                 >
-                  Your Email
+                  Email
                 </label>
                 <div
                   className="input-group"
@@ -279,7 +228,7 @@ export default function ExploreSignup({ setUser }) {
                   }}
                 >
                   <span
-                    id="basic-addon2"
+                    id="basic-addon1"
                     className="input-group-text"
                     style={{
                       boxSizing: "border-box",
@@ -299,8 +248,8 @@ export default function ExploreSignup({ setUser }) {
                       borderTopRightRadius: "0px",
                     }}
                   >
-                    <svg
-                      className="bi bi-envelope"
+                     <svg
+                      className="icon icon-xs"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
@@ -310,16 +259,24 @@ export default function ExploreSignup({ setUser }) {
                         height: "1rem",
                       }}
                     >
-                      <path d="M10 11L4 6h12l-6 5zm7-7H3c-.56 0-1 .44-1 1v8c0 .56.44 1 1 1h14c.56 0 1-.44 1-1V5c0-.56-.44-1-1-1z" />
+                      <path
+                        d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+                        style={{ boxSizing: "border-box" }}
+                      />
+                      <path
+                        d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+                        style={{ boxSizing: "border-box" }}
+                      />
                     </svg>
                   </span>
                   <input
-                    id="exampleInputEmailCard1"
-                    className="form-control"
                     type="email"
+                    id="email"
+                    name="email"
+                    onChange={handleChange}
                     required
+                    className="form-control"
                     placeholder="Email Address"
-                    value={email} onChange={(e) => setEmail(e.target.value)} 
                     style={{
                       boxSizing: "border-box",
                       margin: "0px",
@@ -352,14 +309,14 @@ export default function ExploreSignup({ setUser }) {
               >
                 <label
                   className="mb-2"
-                  htmlFor="exampleInputPasswordCard1"
+                  htmlFor="password"
                   style={{
                     boxSizing: "border-box",
                     display: "inline-block",
                     marginBottom: "0.5rem",
                   }}
                 >
-                  Your Password
+                  Password
                 </label>
                 <div
                   className="input-group"
@@ -408,12 +365,14 @@ export default function ExploreSignup({ setUser }) {
                     </svg>
                   </span>
                   <input
-                    id="exampleInputPasswordCard1"
                     className="form-control"
-                    type="password"
-                    required
                     placeholder="Password"
-                    value={password} onChange={(e) => setPassword(e.target.value)} 
+                    type="password"
+                    id="password"
+                    name="password"
+                    onChange={handleChange}
+                    minLength={8}
+                    required
                     style={{
                       boxSizing: "border-box",
                       margin: "0px",
@@ -445,8 +404,8 @@ export default function ExploreSignup({ setUser }) {
                 style={{ boxSizing: "border-box", marginBottom: "1.5rem" }}
               >
                 <button
-                  type="submit"
-                  onClick={handleOnSubmit}
+                 type="submit"
+                 disabled={isLoading}
                   className="btn btn-primary w-100 py-2"
                   style={{
                     boxSizing: "border-box",
@@ -463,10 +422,104 @@ export default function ExploreSignup({ setUser }) {
                     display: "inline-block",
                   }}
                 >
-                  {loading ? "Loading..." : "Sign Up"}
+                  {isLoading ? 'Signing up...' : 'Sign Up'}
                 </button>
               </div>
             </form>
+            <div
+              className="d-block d-sm-flex align-items-center mt-4"
+              style={{
+                boxSizing: "border-box",
+                alignItems: "center",
+                marginTop: "1.5rem",
+                display: "flex",
+              }}
+            >
+              <span
+                className="fw-normal small"
+                onClick={() => navigate("/explore/login")}
+                style={{
+                  boxSizing: "border-box",
+                  fontSize: "0.875em",
+                  fontWeight: 400,
+                }}
+              >
+                Already have an account? 
+                <Link
+                  className="fw-bold ms-2"
+                  to="/explore/login"
+                  style={{
+                    boxSizing: "border-box",
+                    textDecoration: "none",
+                    transition: "none",
+                    color: "rgb(0, 170, 255)",
+                    marginLeft: "0.5rem",
+                    fontWeight: 500,
+                    cursor: "pointer"
+                  }}
+                >
+                  Login
+                </Link>
+              </span>
+            </div>
+            <div
+                className="mb-4"
+                style={{ display: "flex",
+                  margin: "15px",
+                  justifyContent: "center", }}
+              >
+                <button className="button"
+                onClick={() => window.location.href = 'https://cineflow-server-lada.onrender.com/api/auth/google'}
+                style={{
+                  // maxWidth: "320px",
+                  display: "flex",
+                  padding: "0.5rem 1.4rem",
+                  fontSize: "0.875rem",
+                  lineHeight: "1.25rem",
+                  fontWeight: "700",
+                  textAlign: "center",
+                  textTransform: "uppercase",
+                  verticalAlign: "middle",
+                  alignItems: "center",
+                  borderRadius: "0.5rem",
+                  border: "1px solid rgba(0, 0, 0, 0.25)",
+                  gap: "0.75rem",
+                  color: "rgb(65, 63, 63)",
+                  backgroundColor: "#fff",
+                  cursor: "pointer",
+                  transition: "all .6s ease",
+                  // width:"100%",
+                }}
+                >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      preserveAspectRatio="xMidYMid"
+                      viewBox="0 0 256 262"
+                      style={{
+                        height: "24px",
+                      }}
+                    >
+                      <path
+                        fill="#4285F4"
+                        d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"
+                      />
+                      <path
+                        fill="#34A853"
+                        d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"
+                      />
+                      <path
+                        fill="#FBBC05"
+                        d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782"
+                      />
+                      <path
+                        fill="#EB4335"
+                        d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"
+                      />
+                    </svg>
+                    Continue with Google
+                  </button>
+
+              </div>
           </div>
         </div>
       </div>

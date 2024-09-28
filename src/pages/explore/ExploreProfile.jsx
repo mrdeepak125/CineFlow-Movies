@@ -1,117 +1,125 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { FaUserCircle } from 'react-icons/fa'; 
 import { IoLogOut } from 'react-icons/io5';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import "../../components/header/Header"
-import { UserContext } from '../../contexts/UserContext';
+import "./loading.css";
 
 const ExplorePage = () => {
-  const { user, setUser } = useContext(UserContext);
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+    const [username, setUsername] = useState('');
+    const [avatar, setAvatar] = useState('');
+    const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (!user) {
-        const fetchUserInfo = async () => {
-            try {
-                const response = await axios.get('https://server-t4sa.onrender.com/api/userInfo', {
-                    withCredentials: true,
-                });
+    const fetchUserData = useCallback(async () => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            setLoading(false);
+            setUsername('');
+            setAvatar('');
+            return;
+        }
 
-                if (response.data.success) {
-                    setUser(response.data.data);
-                    navigate('/');
-                }
-            } catch (error) {
-                setUser(null);
+        setLoading(true);
+        try {
+            const response = await axios.get('https://cineflow-server-lada.onrender.com/api/user', {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+
+            setUsername(response.data.username);
+            setAvatar(response.data.avatar);
+        } catch (err) {
+            console.error('Error fetching user data:', err);
+            toast.error('Failed to load user data. Please try again.');
+            localStorage.removeItem('token');
+            setUsername('');
+            setAvatar('');
+        } finally {
+            setLoading(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        fetchUserData();
+    }, [fetchUserData]);
+
+    useEffect(() => {
+        const handleStorageChange = (e) => {
+            if (e.key === 'token') {
+                fetchUserData();
             }
         };
 
-        fetchUserInfo();
-    }
-}, [user, setUser, navigate]);
+        window.addEventListener('storage', handleStorageChange);
 
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        };
+    }, [fetchUserData]);
 
-  const handleLogout = async () => {
-    try {
-        const response = await axios.post('https://server-t4sa.onrender.com/api/logout', {}, {
-            withCredentials: true,
-        });
-        if (response.data.success) {
-            toast.success("Logged out successfully!", {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                theme: "dark",
+    const handleLogout = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            await axios.post('https://cineflow-server-lada.onrender.com/api/logout', {}, {
+                headers: { Authorization: `Bearer ${token}` }
             });
-            setUser(null);
+            localStorage.removeItem('token');
+            setUsername('');
+            setAvatar('');
+            toast.success('Logged out successfully');
             navigate('/explore/login');
+        } catch (error) {
+            console.error('Logout error:', error);
+            toast.error('Failed to logout. Please try again.');
         }
-    } catch (error) {
-        toast.error('Error logging out!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-        });
+    };
+
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <span className="loader"></span>
+            </div>
+        );
     }
-};
 
-  if (!user) {
+    if (!username) {
+        return (
+            <>
+                <li className="menuItem" onClick={() => navigate('/explore/login')}>
+                    Log In
+                </li>
+                <ToastContainer position="top-center" autoClose={5000} />
+            </>
+        );
+    }
+
     return (
-        <li className="menuItem"
-          onClick={() => navigate('/explore/login')}
-        >
-          Log In
-        </li>
+        <>
+            <div  className='login' >
+                <div style={{ position: 'relative', cursor: 'pointer', display: "flex",
+                    flexDirection: "row", justifyContent: "center", alignItems: "center", gap: "10px" }}>
+                    {avatar ? (
+                        <img
+                            src={avatar}
+                            alt={username}
+                            style={{ width: '40px', height: '40px', borderRadius: '50%' }}
+                        />
+                    ) : (
+                        <FaUserCircle color='white' size={30} />
+                    )}
+                    <div className='useremail' style={{
+                        color: "white"
+                    }}><strong>{username}</strong></div>
+                    <li className="logout" style={{
+                        color : "white"
+                    }} onClick={handleLogout}><IoLogOut /></li>
+                </div>
+            </div>
+            <ToastContainer position="top-center" autoClose={5000} />
+        </>
     );
-  }
-
-  return (
-    <>
-    <ToastContainer
-              position="top-center"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="dark"
-          />
-    <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '10px' }}>
-      <div style={{ position: 'relative', cursor: 'pointer', display: "flex",
-        flexDirection: "row", justifyContent: "center", alignItems: "center", gap: "10px" }}>
-        {user.imageUrl ? (
-          <img
-            src={user.imageUrl}
-            alt={user.userName}
-            style={{ width: '40px', height: '40px', borderRadius: '50%' }}
-          />
-        ) : (
-          <FaUserCircle size={40} />
-        )}
-        <div className='useremail' style={{
-          color: "white"
-        }}><strong>{user.email}</strong></div>
-        <li className="menuItem" style={{
-          color : "white"
-        }} onClick={handleLogout}><IoLogOut /></li>
-      </div>
-    </div>
-    </>
-  );
 };
 
 export default ExplorePage;
