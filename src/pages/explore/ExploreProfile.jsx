@@ -110,7 +110,10 @@ const ExplorePage = () => {
                         <FaUserCircle color='white' size={30} />
                     )}
                     <div className='useremail' style={{
-                        color: "white"
+                        color: "white",
+                        overflow: "hidden",
+                        maxWidth: "200px",
+                        textOverflow: "ellipsis",
                     }}><strong>{username}</strong></div>
                     <li className="logout" style={{
                         color : "white"
