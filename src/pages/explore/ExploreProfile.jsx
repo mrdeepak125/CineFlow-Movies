@@ -76,13 +76,13 @@ const ExplorePage = () => {
         }
     };
 
-    if (loading) {
-        return (
-            <div className="flex justify-center items-center h-screen">
-                <span className="loader"></span>
-            </div>
-        );
-    }
+    // if (loading) {
+    //     return (
+    //         <div className="flex justify-center items-center h-screen">
+    //             <span className="loader"></span>
+    //         </div>
+    //     );
+    // }
 
     if (!username) {
         return (

@@ -17,6 +17,43 @@ const sources = [
     ],
   },
   {
+    vidsrcdev:[
+      "https://vidsrc.dev/embed/movie/ID",
+      "https://vidsrc.dev/embed/tv/ID/sea/epi",
+    ]
+  },
+  {
+    vidsrcto: [
+      "https://vidsrc.to/embed/movie/ID",
+      "https://vidsrc.to/embed/tv/ID/sea/epi",
+    ]
+  },
+  {
+    vidsrcme: [
+      "https://vidsrc.me/embed/movie?tmdb=ID",
+      "https://vidsrc.me/embed/tv?tmdb=ID&season=sea&episode=epi",
+    ],
+  },
+  {
+    vidpro:[
+      "https://vidsrc.pro/embed/movie/ID",
+      "https://vidsrc.pro/embed/tv/ID/sea/epi",
+    ]
+  }
+  ,
+  {
+    filmku:[
+      "https://filmku.stream/embed/movie?tmdb=ID",
+      "https://filmku.stream/embed/series?tmdb=ID&sea=sea&epi=epi",
+    ]
+  },
+  {
+    vidsrccc:[
+      "https://vidsrc.cc/v2/embed/movie/ID",
+      "https://vidsrc.cc/v2/embed/tv/ID/sea/epi",
+    ]
+  },
+  {
     multiembed: [
       "https://multiembed.mov/?video_id=ID&tmdb=1",
       "https://multiembed.mov/?video_id=ID&tmdb=1&s=sea&e=epi",
@@ -29,10 +66,10 @@ const sources = [
     ],
   },
   {
-    vidsrc: [
-      "https://vidsrc.me/embed/movie?tmdb=ID",
-      "https://vidsrc.me/embed/tv?tmdb=ID&season=sea&episode=epi",
-    ],
+    autoembedco:[
+      "https://autoembed.co/movie/tmdb/ID",
+      "https://autoembed.co/tv/tmdb/ID-sea-epi",
+    ]
   },
   {
     moviesapi: [
@@ -141,56 +178,78 @@ const fetchCineFlowUrl = async () => {
           );
           break;
         case 2:
-          selectedSource = sources[2].multiembed[1].replace(
-            "ID&tmdb=1&s=sea&e=epi",
-            `${id}&tmdb=1&s=${sea}&e=${epi}`
+          selectedSource = sources[2].vidsrcdev[1].replace(
+            "ID/sea/epi",
+            `${id}/${sea}/${epi}`
           );
           break;
         case 3:
-          selectedSource = sources[3].autoembed[1].replace(
+          selectedSource = sources[3].vidsrcto[1].replace(
             "ID/sea/epi",
             `${id}/${sea}/${epi}`
           );
           break;
         case 4:
-          selectedSource = sources[4].vidsrc[1].replace(
+          selectedSource = sources[4].vidsrcme[1].replace(
             "ID&season=sea&episode=epi",
             `${id}&season=${sea}&episode=${epi}`
           );
           break;
         case 5:
-          selectedSource = sources[5].moviesapi[1].replace(
-            "ID-sea-epi",
-            `${id}-${sea}-${epi}`
+          selectedSource = sources[5].vidpro[1].replace(
+            "ID/sea/epi",
+            `${id}/${sea}/${epi}`
           );
           break;
         case 6:
-          selectedSource = sources[6].NontonGo[1].replace(
-            "ID&s=sea&e=epi",
-            `${id}&s=${sea}&e=${epi}`
+          selectedSource = sources[6].filmku[1].replace(
+            "ID&sea=sea&epi=epi",
+            `${id}&sea=${sea}&epi=${epi}`
           );
           break;
         case 7:
             await fetchCineFlowUrl(); // Fetch CineFlow URL
             break;
-          // case 8:
-          // selectedSource =
-          //   sea === 1
-          //     ? sources[8].awstream[1].replace(
-          //         "title-8211-episode-01",
-          //         `${formattedTitle}-8211-episode-${epi}`
-          //       )
-          //     : sources[8].awstream[2].replace(
-          //         "title-season--02-8211-episode-7",
-          //         `${formattedTitle}-season--${sea
-          //           .toString()
-          //           .padStart(2, "0")}-8211-episode-${epi}`
-          //       );
-          // break;
+        case 8:
+          selectedSource = sources[7].vidsrccc[1].replace(
+            "ID/sea/epi",
+            `${id}/${sea}/${epi}`
+          );
+          break;
+        case 9:
+          selectedSource = sources[8].multiembed[1].replace(
+            "ID&tmdb=1&s=sea&e=epi",
+            `${id}&tmdb=1&s=${sea}&e=${epi}`
+          );
+          break;
+        case 10:
+            selectedSource = sources[9].autoembed[1].replace(
+              "ID/sea/epi",
+              `${id}/${sea}/${epi}`
+            );
+            break;
+          case 11:
+              selectedSource = sources[10].autoembedco[1].replace(
+                "ID-sea-epi",
+                `${id}-${sea}-${epi}`
+              );
+              break;
+          case 12:
+              selectedSource = sources[11].moviesapi[1].replace(
+                "ID-sea-epi",
+                `${id}-${sea}-${epi}`
+              );
+              break;
+          case 13:
+              selectedSource = sources[12].NontonGo[1].replace(
+                "ID&s=sea&e=epi",
+                `${id}&s=${sea}&e=${epi}`
+              );
+              break;
         default:
-          selectedSource = sources[0].embedcc[1].replace(
-            "ID&s=sea&e=epi",
-            `${id}&s=${sea}&e=${epi}`
+          selectedSource = sources[2].vidpro[1].replace(
+            "ID/sea/epi",
+            `${id}/${sea}/${epi}`
           );
           break;
       }
@@ -203,31 +262,43 @@ const fetchCineFlowUrl = async () => {
           selectedSource = sources[1].smashstream[0].replace("ID", id);
           break;
         case 2:
-          selectedSource = sources[2].multiembed[0].replace("ID", id);
+          selectedSource = sources[2].vidsrcdev[0].replace("ID", id);
           break;
         case 3:
-          selectedSource = sources[3].autoembed[0].replace("ID", id);
+          selectedSource = sources[3].vidsrcto[0].replace("ID", id);
           break;
         case 4:
-          selectedSource = sources[4].vidsrc[0].replace("ID", id);
+          selectedSource = sources[4].vidsrcme[0].replace("ID", id);
           break;
         case 5:
-          selectedSource = sources[5].moviesapi[0].replace("ID", id);
+          selectedSource = sources[5].vidpro[0].replace("ID", id);
           break;
         case 6:
-          selectedSource = sources[6].NontonGo[0].replace("ID", id);
+          selectedSource = sources[6].filmku[0].replace("ID", id);
           break;
         case 7:
-            await fetchCineFlowUrl(); // Fetch CineFlow URL
+            await fetchCineFlowUrl();
             break;
-        // case 8:
-        //   selectedSource = sources[8].awstream[0].replace(
-        //     "title-8211-episode-1",
-        //     `${formattedTitle}-8211-episode-1`
-        //   );
-        //   break;
+        case 8:
+          selectedSource = sources[7].vidsrccc[0].replace("ID", id);
+          break;
+        case 9:
+            selectedSource = sources[8].multiembed[0].replace("ID", id);
+            break;        
+        case 10:
+            selectedSource = sources[9].autoembed[0].replace("ID", id);
+            break;        
+        case 11:
+            selectedSource = sources[10].autoembedco[0].replace("ID", id);
+            break;        
+        case 12:
+            selectedSource = sources[11].moviesapi[0].replace("ID", id);
+            break;        
+        case 13:
+            selectedSource = sources[12].NontonGo[0].replace("ID", id);
+            break;
         default:
-          selectedSource = sources[0].embedcc[0].replace("ID", id);
+          selectedSource = sources[2].vidpro[0].replace("ID", id);
           break;
       }
     }
@@ -286,6 +357,9 @@ const fetchCineFlowUrl = async () => {
             allowFullScreen
           ></iframe>
         )}
+        <p style={{
+          color: "white",
+        }}>If current Source doesn't work, please try other Sources</p>
         <div className="source-buttons">
           {sources.map((source, index) => (
             <div
