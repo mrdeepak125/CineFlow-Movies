@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+
 
 export default function Login() {
   const [credentials, setCredentials] = useState({ username: '', password: '' });
@@ -17,7 +18,7 @@ export default function Login() {
     if (token) {
       localStorage.setItem('token', token);
       toast.success('Google login successful');
-      navigate('/dashboard');
+      navigate('/');
     } else if (error === 'google_auth_failed') {
       toast.error('Google authentication failed. Please try again.');
     }
