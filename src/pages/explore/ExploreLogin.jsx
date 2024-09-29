@@ -7,6 +7,21 @@ export default function Login() {
   const [credentials, setCredentials] = useState({ username: '', password: '' });
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const token = params.get('token');
+    const error = params.get('error');
+
+    if (token) {
+      localStorage.setItem('token', token);
+      toast.success('Google login successful');
+      navigate('/dashboard');
+    } else if (error === 'google_auth_failed') {
+      toast.error('Google authentication failed. Please try again.');
+    }
+  }, [location, navigate]);
 
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -19,13 +34,17 @@ export default function Login() {
       const response = await axios.post('https://cineflow-server-lada.onrender.com/api/login', credentials);
       localStorage.setItem('token', response.data.token);
       toast.success('Login successful');
-      navigate('/');
+      navigate('/dashboard');
     } catch (error) {
       console.error('Login error:', error.response?.data || error.message);
       toast.error(error.response?.data?.message || 'An error occurred. Please try again.');
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleGoogleLogin = () => {
+    window.location.href = 'https://cineflow-server-lada.onrender.com/api/auth/google';
   };
 
   return (
@@ -471,7 +490,7 @@ export default function Login() {
                   justifyContent: "center", }}
               >
                 <button className="button"
-                onClick={() => window.location.href = 'https://cineflow-server-lada.onrender.com/api/auth/google'}
+                onClick={handleGoogleLogin}
                 style={{
                   // maxWidth: "320px",
                   display: "flex",
