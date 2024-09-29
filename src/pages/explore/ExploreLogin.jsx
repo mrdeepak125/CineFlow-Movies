@@ -35,7 +35,7 @@ export default function Login() {
       const response = await axios.post('https://cineflow-server-lada.onrender.com/api/login', credentials);
       localStorage.setItem('token', response.data.token);
       toast.success('Login successful');
-      navigate('/dashboard');
+      navigate('/');
     } catch (error) {
       console.error('Login error:', error.response?.data || error.message);
       toast.error(error.response?.data?.message || 'An error occurred. Please try again.');

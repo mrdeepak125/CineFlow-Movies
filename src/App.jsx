@@ -8,7 +8,7 @@ import { getApiConfiguration, getGenres } from "./store/homeSlice";
 import { ToastContainer } from 'react-toastify';
 
 import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
+// import Footer from "./components/footer/Footer";
 import Home from "./pages/home/Home";
 import Details from "./pages/details/Details";
 import SearchResult from "./pages/searchResult/SearchResult";
