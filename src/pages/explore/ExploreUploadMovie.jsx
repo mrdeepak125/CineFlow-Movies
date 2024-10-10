@@ -1,24 +1,35 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import "./upload.css";
+import { toast, ToastContainer } from 'react-toastify';
+import './upload.css';
 
 const ExploreUploadMovie = () => {
   const [tmdbId, setTmdbId] = useState('');
   const [url, setUrl] = useState('');
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setMessage(''); 
 
     try {
       const response = await axios.post('https://server-t4sa.onrender.com/upload/movie', {
         tmdbId,
         url,
       });
+
       setMessage(response.data.message);
+      toast.success('Movie uploaded successfully!'); 
+      setTmdbId(''); 
+      setUrl('');
     } catch (error) {
       console.error('Error uploading movie:', error);
       setMessage('Failed to upload movie');
+      toast.error('Failed to upload movie');
+    } finally {
+      setLoading(false); 
     }
   };
 
@@ -34,6 +45,7 @@ const ExploreUploadMovie = () => {
             onChange={(e) => setTmdbId(e.target.value)}
             required
             className="input-field"
+            disabled={loading} 
           />
         </div>
         <div className="form-group">
@@ -44,16 +56,19 @@ const ExploreUploadMovie = () => {
             onChange={(e) => setUrl(e.target.value)}
             required
             className="input-field"
+            disabled={loading} 
           />
         </div>
-        <button type="submit" className="submit-button">
-          Upload Movie
+        <button
+          type="submit"
+          className={`submit-button ${loading ? 'disabled' : ''}`}
+          disabled={loading} 
+        >
+          {loading ? <span className="loader"></span> : 'Upload Movie'}
         </button>
       </form>
-      {message && <p className="message">{message}</p>}
     </div>
   );
 };
-
 
 export default ExploreUploadMovie;

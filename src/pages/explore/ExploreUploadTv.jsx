@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import "./upload.css";
+import { toast } from 'react-toastify';
+import './upload.css';
 
 const ExploreUploadTv = () => {
   const [tmdbId, setTmdbId] = useState('');
@@ -8,9 +9,12 @@ const ExploreUploadTv = () => {
   const [episode, setEpisode] = useState('');
   const [url, setUrl] = useState('');
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setMessage('');
 
     try {
       const response = await axios.post('https://server-t4sa.onrender.com/upload/tv', {
@@ -19,10 +23,19 @@ const ExploreUploadTv = () => {
         episode,
         url,
       });
+
       setMessage(response.data.message);
+      toast.success('TV show uploaded successfully!');
+      setTmdbId('');
+      setSession('');
+      setEpisode('');
+      setUrl('');
     } catch (error) {
       console.error('Error uploading TV show:', error);
       setMessage('Failed to upload TV show');
+      toast.error('Failed to upload TV show');
+    } finally {
+      setLoading(false); 
     }
   };
 
@@ -38,6 +51,7 @@ const ExploreUploadTv = () => {
             onChange={(e) => setTmdbId(e.target.value)}
             required
             className="input-field"
+            disabled={loading}
           />
         </div>
         <div className="form-group">
@@ -48,6 +62,7 @@ const ExploreUploadTv = () => {
             onChange={(e) => setSession(e.target.value)}
             required
             className="input-field"
+            disabled={loading}
           />
         </div>
         <div className="form-group">
@@ -58,6 +73,7 @@ const ExploreUploadTv = () => {
             onChange={(e) => setEpisode(e.target.value)}
             required
             className="input-field"
+            disabled={loading}
           />
         </div>
         <div className="form-group">
@@ -68,13 +84,17 @@ const ExploreUploadTv = () => {
             onChange={(e) => setUrl(e.target.value)}
             required
             className="input-field"
+            disabled={loading}
           />
         </div>
-        <button type="submit" className="submit-button">
-          Upload TV Show
+        <button
+          type="submit"
+          className={`submit-button ${loading ? 'disabled' : ''}`}
+          disabled={loading}
+        >
+          {loading ? <span className="loader"></span> : 'Upload TV Show'}
         </button>
       </form>
-      {message && <p className="message">{message}</p>}
     </div>
   );
 };
