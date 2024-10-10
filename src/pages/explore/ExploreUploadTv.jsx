@@ -26,9 +26,6 @@ const ExploreUploadTv = () => {
 
       setMessage(response.data.message);
       toast.success('TV show uploaded successfully!');
-      setTmdbId('');
-      setSession('');
-      setEpisode('');
       setUrl('');
     } catch (error) {
       console.error('Error uploading TV show:', error);
