@@ -111,9 +111,9 @@ const Header = () => {
                     {/* <li className="menuItem"> */}
                         {/* <ExploreProfile /> */}
                     {/* </li> */}
-                    <li>
+                    <li className="signedOutMenuItem">
                         <SignedOut>
-                        <SignInButton style={{
+                            <SignInButton style={{
                                 border: "none",
                                 background: "none",
                                 height: "60px",
@@ -124,21 +124,21 @@ const Header = () => {
                                 fontWeight: "500",
                                 position: "relative",
                                 cursor: "pointer",
-                                fontSize: "16px",               
-                        }}/>
-                    </SignedOut>
-                    <SignedIn>
-                        <UserButton />
-                    </SignedIn>
+                                fontSize: "16px",
+                            }}/>
+                        </SignedOut>
+                        <SignedIn>
+                            <UserButton />
+                        </SignedIn>
                     </li>
-                    
-                    <li className="menuItem"> 
+                    <li className="menuItem">
                         <HiOutlineSearch onClick={openSearch} />
                     </li>
                 </ul>
 
                 <div className="mobileMenuItems">
                     <HiOutlineSearch onClick={openSearch} />
+                    <UserButton />
                     {mobileMenu ? (
                         <VscChromeClose onClick={() => setMobileMenu(false)} />
                     ) : (
