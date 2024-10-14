@@ -23,15 +23,15 @@ const sources = [
     ]
   },
   {
-    vidsrcto: [
-      "https://vidsrc.to/embed/movie/ID",
-      "https://vidsrc.to/embed/tv/ID/sea/epi",
+    vidsrcvip: [
+      "https://vidsrc.vip/embed/movie/ID",
+      "https://vidsrc.vip/embed/tv/ID/sea/epi",
     ]
   },
   {
-    vidsrcme: [
-      "https://vidsrc.me/embed/movie?tmdb=ID",
-      "https://vidsrc.me/embed/tv?tmdb=ID&season=sea&episode=epi",
+    warezcdn: [
+      "https://embed.warezcdn.link/filme/ID",
+      "https://embed.warezcdn.com/serie/ID/sea/epi",
     ],
   },
   {
@@ -184,15 +184,15 @@ const fetchCineFlowUrl = async () => {
           );
           break;
         case 3:
-          selectedSource = sources[3].vidsrcto[1].replace(
+          selectedSource = sources[3].vidsrcvip[1].replace(
             "ID/sea/epi",
             `${id}/${sea}/${epi}`
           );
           break;
         case 4:
-          selectedSource = sources[4].vidsrcme[1].replace(
-            "ID&season=sea&episode=epi",
-            `${id}&season=${sea}&episode=${epi}`
+          selectedSource = sources[4].warezcdn[1].replace(
+            "ID/sea/epi",
+            `${id}/${sea}/${epi}`
           );
           break;
         case 5:
@@ -265,10 +265,10 @@ const fetchCineFlowUrl = async () => {
           selectedSource = sources[2].vidsrcdev[0].replace("ID", id);
           break;
         case 3:
-          selectedSource = sources[3].vidsrcto[0].replace("ID", id);
+          selectedSource = sources[3].vidsrcvip[0].replace("ID", id);
           break;
         case 4:
-          selectedSource = sources[4].vidsrcme[0].replace("ID", id);
+          selectedSource = sources[4].warezcdn[0].replace("ID", id);
           break;
         case 5:
           selectedSource = sources[5].vidpro[0].replace("ID", id);
@@ -332,7 +332,7 @@ const fetchCineFlowUrl = async () => {
         {isError ? ( // Show 404 page if no data or error
           <iframe
             id="dd"
-            src="https://beta.awstream.net/watch?v=days-with-my-stepsister-8211-episode-ghasdghasdgh&lang=hindi"
+            src="https://beta.awstream.net/watch?v=cineflow"
             width="90%"
             frameBorder="0"
             scrolling="yes"
@@ -371,7 +371,7 @@ const fetchCineFlowUrl = async () => {
                   : "button-62"
               }
             >
-              Source {index + 1}
+              Server {index + 1}
             </div>
           ))}
         </div>

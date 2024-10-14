@@ -4,6 +4,7 @@ import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./style.scss";
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
 
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import logo from "../../assets/cineflow-logo.png";
@@ -108,8 +109,29 @@ const Header = () => {
                         Live TV
                     </li>
                     {/* <li className="menuItem"> */}
-                        <ExploreProfile />
+                        {/* <ExploreProfile /> */}
                     {/* </li> */}
+                    <li>
+                        <SignedOut>
+                        <SignInButton style={{
+                                border: "none",
+                                background: "none",
+                                height: "60px",
+                                display: "flex",
+                                alignItems: "center",
+                                margin: "0 15px",
+                                color: "white",
+                                fontWeight: "500",
+                                position: "relative",
+                                cursor: "pointer",
+                                fontSize: "16px",               
+                        }}/>
+                    </SignedOut>
+                    <SignedIn>
+                        <UserButton />
+                    </SignedIn>
+                    </li>
+                    
                     <li className="menuItem"> 
                         <HiOutlineSearch onClick={openSearch} />
                     </li>
