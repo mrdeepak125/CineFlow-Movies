@@ -111,15 +111,13 @@ const Header = () => {
                     {/* <li className="menuItem"> */}
                         {/* <ExploreProfile /> */}
                     {/* </li> */}
-                    <li className="signedOutMenuItem">
+                    <li className="menuItem signedOutMenuItem">
                         <SignedOut>
                             <SignInButton style={{
                                 border: "none",
                                 background: "none",
-                                height: "60px",
                                 display: "flex",
                                 alignItems: "center",
-                                margin: "0 15px",
                                 color: "white",
                                 fontWeight: "500",
                                 position: "relative",
