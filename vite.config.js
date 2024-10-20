@@ -6,6 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': 'https://server-t4sa.onrender.com/',
+        historyApiFallback: true,
     }
   },
   plugins: [
