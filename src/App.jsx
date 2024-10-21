@@ -10,7 +10,7 @@ import { getApiConfiguration, getGenres } from "./store/homeSlice";
 import { ToastContainer } from 'react-toastify';
 
 import Header from "./components/header/Header";
-// import Footer from "./components/footer/Footer";
+import Dmca from "./components/footer/Dmca.jsx";
 import Home from "./pages/home/Home";
 import Details from "./pages/details/Details";
 import SearchResult from "./pages/searchResult/SearchResult";
@@ -75,6 +75,7 @@ function App() {
             <Header />
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/dmca" element={<Dmca />} />
                 <Route path="/explore/upload/movie" element={<ExploreUploadMovie />} />
                 <Route path="/explore/upload/tv" element={<ExploreUploadTv />} />
                 {/* <Route path="/anime/:id" element={<DetailsAnime />} /> */}

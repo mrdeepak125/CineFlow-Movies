@@ -10,7 +10,8 @@ import TopThrillers from "./topTrilar/TopThrillers";
 import TopSciFi from "./topScifi/TopSciFi";
 import TopHorror from "./TopHorror/TopHorror";
 import TopKids from "./topKids/topKids";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+import Footer from "../../components/footer/Footer";
 
 const Home = () => {
     return (
@@ -24,6 +25,7 @@ const Home = () => {
             <TopSciFi />
             <TopKids />
             <TopRated />
+            <Footer />
         </div>
     );
 };
