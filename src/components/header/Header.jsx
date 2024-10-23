@@ -8,7 +8,7 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-reac
 
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import logo from "../../assets/cineflow-logo.png";
-import ExploreProfile from "../../pages/explore/exploreprofile";
+import ExploreProfile from "../../pages/explore/ExploreProfile.jsx";
 
 const Header = () => {
     const [show, setShow] = useState("top");
